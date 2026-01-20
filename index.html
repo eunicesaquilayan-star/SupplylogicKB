@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Knowledge Base Tool</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Aptos:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Aptos', sans-serif;
+  background-color: #f4f4f4;
+  color: #000;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #24194F;
+  color: white;
+  padding: 10px 20px;
+}
+
+header img {
+  height: 50px;
+}
+
+header button {
+  background: none;
+  border: 1px solid white;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 70px);
+  background: linear-gradient(135deg, #24194F, #1A1640);
+  color: white;
+  text-align: center;
+}
+
+.hero input[type="text"] {
+  padding: 12px;
+  width: 50%;
+  max-width: 500px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+#search-results {
+  margin-top: 10px;
+  width: 50%;
+  max-width: 500px;
+  text-align: left;
+}
+
+.search-result {
+  background: white;
+  color: #24194F;
+  padding: 8px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-result:hover {
+  background: #ddd;
+}
+
+.sidebar {
+  position: fixed;
+  top: 70px;
+  right: -200px;
+  width: 200px;
+  background: #24194F;
+  color: white;
+  height: 100%;
+  transition: 0.3s;
+  padding: 10px;
+}
+
+.sidebar.open {
+  right: 0;
+}
+
+.sidebar button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.article {
+  display: none;
+  padding: 20px;
+  max-width: 900px;
+  margin: 20px auto;
+  background-color: #F4F4F4;
+  border-radius: 8px;
+}
+
+.article-title {
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.article p {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.article img {
+  display: block;
+  margin: 10px 0;
+  min-width: 300px;
+  max-width: 700px;
+  min-height: 100px;
+  max-height: 450px;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 15px;
+  cursor: pointer;
+  color: #24194F;
+  font-weight: bold;
+}
+
+footer {
+  background: #24194F;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+}
+
+footer a {
+  color: white;
+  text-decoration: underline;
+}
+
+.dark-mode {
+  background: #121212;
+  color: #e0e0e0;
+}
+
+.dark-mode .hero {
+  background: linear-gradient(135deg, #1A1640, #0F0B27);
+}
+
+.dark-mode .search-result {
+  background: #333;
+  color: #fff;
+}
+
+.dark-mode .search-result:hover {
+  background: #555;
+}
+
+.highlight {
+  background-color: yellow;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <img src="images/Supply-logic.png" alt="Supply logic">
+  <div>
+    <button onclick="toggleDarkMode()">Dark Mode</button>
+    <button onclick="toggleSidebar()">☰ Sidebar</button>
+  </div>
+</header>
+
+<div class="sidebar" id="sidebar">
+  <button onclick="toggleSidebar()">✖ Close</button>
+  <p>Articles:</p>
+  <ul>
+    <li onclick="openArticle('terms')">Terms, Use, & Definitions</li>
+    <li onclick="openArticle('marcom')">Marcom Central Function</li>
+    <li onclick="openArticle('marketing')">MarketingBench Function</li>
+    <li onclick="openArticle('companies')">Companies & URLs</li>
+    <li onclick="openArticle('privacy')">Internal Privacy Notice</li>
+  </ul>
+</div>
+
+<div class="hero">
+  <h1>Knowledge Base</h1>
+  <input type="text" id="search" placeholder="Search articles..." oninput="performSearch()">
+  <div id="search-results"></div>
+</div>
+
+<!-- ARTICLES -->
+<section class="article" id="terms">
+<a class="back" onclick="goHome()">← Back to Home</a>
+<div class="article-title">Terms, Use, & Definitions</div>
+<p>● <strong>Supply Logic</strong> — From sourcing to fulfillment, SupplyLogic applies the same people, processes, and technology to simplify execution for multi-location brands. As an extension of your team, we create competitive tension in sourcing, deliver precision in fulfillment, and give you full visibility into spend — so your brand shows up flawlessly, everywhere it matters.</p>
+<p>● <strong>Back-ordered</strong> - Product that's temporarily out of stock but still available for purchase, meaning the seller has already ordered more from the supplier or manufacturer and expects to fulfill the order later...</p>
+<p>● <strong>Demand Bridge</strong> — Is a tool where order related information are being stored.</p>
+<p>● <strong>Dialpad</strong> — Our primary calling and communication platform. Dialpad is a modern, AI-powered voice and contact center system that lets you take inbound customer calls, access relevant call features, and view customer details while you talk...</p>
+<p>● <strong>Shopify</strong> — When available, you can view customer profile information and recent orders directly on your screen during calls...</p>
+<p>● <strong>MyMarketingBench</strong> — A central platform used by our team to access marketing insights and assets that may support customer discussions...</p>
+<p>● <strong>MarcomCentral</strong> — A brand management and distributed marketing platform where clients may store and manage official marketing materials...</p>
+<p>● <strong>Net terms</strong> – Net terms on an invoice define the payment deadline...</p>
+<p>● <strong>Pending Status</strong> – An order was placed but not yet shipped...</p>
+<p>● <strong>Purchase Order (PO)</strong> — A Purchase Order is an official document issued by a company authorizing a vendor...</p>
+<p>● <strong>Credit Card</strong> — An electronic payment method that allows immediate payment using a bank-issued card...</p>
+<p>● <strong>Check</strong> — A written payment instruction from a bank account holder...</p>
+<p>● <strong>User Budget</strong> — A pre-approved spending limit assigned to a user or department...</p>
+<p>● <strong>Impersonate</strong> – Access a customer's account to place an order on their behalf if requested.</p>
+<p>● <strong>Call Drivers</strong> — Account access / inquiries, Order placing, Order status & Tracking order...</p>
+</section>
+
+<section class="article" id="marcom">
+<a class="back" onclick="goHome()">← Back to Home</a>
+<div class="article-title">Marcom Central Function</div>
+<p><strong>ACCOUNT ACCESS</strong></p>
+<p>1. Login to the MarcomPortal using your credentials. Website: <a href="https://admin.marcomcentral.app.pti.com/" target="_blank">https://admin.marcomcentral.app.pti.com/</a></p>
+<p>2. Click the FusionPro Central logo to ensure you are at the home screen screen to make sure you are at the home screen of the portal.</p>
+<img src="images/Marcom-1.png" alt="Marcom 1">
+<p> By using this portal, you can access the list of customers that we have listed on the portal. Remember that you can only access the portal by using VPN.</p>
+<p><strong>Changing to the Caller’s Account</strong></p>
+<p>1. Make sure you are at the <strong>HOME SCREEN</strong>. Click the dropdown to choose the caller’s account.</p>
+<p>2. Click the dropdown button on this part of the screen to choose the account of the caller.</p>
+<img src="images/Marcom-2.png" alt="Marcom 2">
+<p>It will show you the list of the accounts and URLs   of customers that we have on our portal like the image below.</p>
+<img src="images/Marcom-3.png" alt="Marcom 3">
+<p>3. Choose the account of the caller to start accessing their account. (e.g. Buff City Soap)</p>
+<img src="images/Marcom-4.png" alt="Marcom 4">
+<p>4. Click on PORTAL USERS. </p>
+<img src="images/Marcom-5.png" alt="Marcom 5">
+<p>5. Select USERS to see the users under the Customer’s account.</p>
+<img src="images/Marcom-6.png" alt="Marcom 6">
+<p>After clicking the USERS, this will take you to the image below. 
+Please take note that “YOU WILL ONLY ACCESS THIS AREA.”. You will not access any other page inside the Portal.</p>
+<img src="images/Marcom-7.png" alt="Marcom 7">
+<p> On this part of the portal, you can search the users by User’s Name, external ID, and user ID. The User’s name format is First Name Last Name. 
+You can also search them by a part of their name in case the user only provided it. An example image is seen below.</p>
+<p> Changing User Account Details. (Changing Password)</strong></p>
+<p>1. Search the account of the user by their provided details. (e.g. Burke.)</p>
+<p>2. Double Click on the name of the correct account of the user. (Remember not to click the Login Button, but on the name of the User’s Account)</p>
+<img src="images/Marcom-8.png" alt="Marcom 8">
+<p>3. It will take you to this screen. .</p>
+<img src="images/Marcom-9.png" alt="Marcom 9">
+<p>4. Click <strong>EDIT</strong> on the top right to make changes.</p>
+<img src="images/Marcom-10.png" alt="Marcom 10">
+<p>Click <strong>EDIT</strong> on the top right to make changes.</p>
+<img src="images/Marcom-11.png" alt="Marcom 11">
+<p>5. Change the password of the user on Password Text Box. Make sure to put the same Password on the Confirm Password Text Box.</p>
+<p>6. Inform the caller about the password change and they need to change the password to their preferred password onc0e they are able to login back to their account.</p>
+<p>7. Click the save button on the top right of the screen.
+<img src="images/Marcom-12.png" alt="Marcom 12">
+<p>Change the password and confirm in the Confirm Password box. Click save.</p>
+<img src="images/Marcom-13.png" alt="Marcom 13">
+<p><strong>Marcom Central Brinker Function</strong></p>
+<p>You can manage our store using this platform. You will have your own login credentials for this tool.</p>
+<img src="images/Brinker-1.png" alt="Brinker 1">
+<img src="images/Brinker-2.png" alt="Brinker 2">
+<p> Key note: Brinker International is Chili’s and Maggiano’s partners so you need to ask if they are Chili’s or Maggiano’s because they both cater to different accounts. 
+In this platform, you can search the item on the search bar if you can’t remember which catalog it is in. 
+Below is the sample of the catalog that we have on the platform:</p>
+<img src="images/Brinker-3.png" alt="Brinker 3">
+<p>To access Chili’s catalog, you can hover your mouse cursor on the CHILI’S to view more.</p>
+<img src="images/Brinker-4.png" alt="Brinker 4">
+<p><strong>ORDER TAKING PRODUCT CATALOG:</strong></p>
+<p>In this example, we can search an item using the search box on the top right of the screen. 
+ou can input keywords and it will show you suggestions of the item that you are looking for on the platform. 
+Below is an example search that we had.</p>
+<img src="images/Brinker-5.png" alt="Brinker 5">
+<p>We are looking for the Validation Binder in this example. 
+Click on the product that you are looking for to see more details about the said product.</p>
+<img src="images/Brinker-6.png" alt="Brinker 6">
+<p><strong>CUSTOMIZED PRODUCTS</strong></p>
+<p>We have products that are custom made like business cards. You can search it using the search box above. 
+Below is an example on how it will look like.</p>
+<img src="images/Brinker-7.png" alt="Brinker 7">
+<p>They need to fill up the details of the item first. 
+Once we are able to fill in the details for the item. 
+Click PREVIEW before you check out. You can’t proceed if you will not click PREVIEW.</p>
+<img src="images/Brinker-8.png" alt="Brinker 8">
+<p><strong>ORDER CHECKOUT</strong></p>
+<p>Once you are done with the items you want to add in your cart. Click CART on the top menu to view all of your items.</p>
+<img src="images/Brinker-9.png" alt="Brinker 9">
+<img src="images/Brinker-10.png" alt="Brinker 10">
+<p><strong>SHIPPING</strong></p>
+<img src="images/Brinker-11.png" alt="Brinker 11">
+<img src="images/Brinker-12.png" alt="Brinker 12">
+<p><strong>BILLING</strong></p>
+<img src="images/Brinker-13.png" alt="Brinker 13">
+<img src="images/Brinker-14.png" alt="Brinker 14">
+</section>
+
+<section class="article" id="marketing">
+<a class="back" onclick="goHome()">← Back to Home</a>
+<div class="article-title">MarketingBench Function</div>
+<p><strong>Changing Password on MYMARKETBENCH</strong> (Legacy: DBE)</p>
+<img src="images/MarketingBench-1.png" alt="MarketingBench 1">
+<img src="images/MarketingBench-2.png" alt="MarketingBench 2">
+<img src="images/MarketingBench-3.png" alt="MarketingBench 3">
+<img src="images/MarketingBench-4.png" alt="MarketingBench 4">
+<img src="images/MarketingBench-5.png" alt="MarketingBench 5">
+<img src="images/MarketingBench-6.png" alt="MarketingBench 6">
+<p><strong>ORDER INQUIRIES</strong></p>
+<img src="images/MarketingBench-7.png" alt="MarketingBench 7">
+<img src="images/MarketingBench-8.png" alt="MarketingBench 8">
+<img src="images/MarketingBench-9.png" alt="MarketingBench 9">
+<img src="images/MarketingBench-10.png" alt="MarketingBench 10">
+<img src="images/MarketingBench-11.png" alt="MarketingBench 11">
+</section>
+
+<section class="article" id="companies">
+<a class="back" onclick="goHome()">← Back to Home</a>
+<div class="article-title">Companies & URLs</div>
+<p>PLEASE CLICK THE LINK TO SEE THE UPDATED Companies & URLs</p>
+<p><a href="https://docs.google.com/spreadsheets/d/1oh4_y0JDSTbJ108A3s4hJdSo-k8OLCJX/edit?usp=drive_link&ouid=108293800666962437810&rtpof=true&sd=true" target="_blank">View Spreadsheet</a></p>
+</section>
+
+<section class="article" id="privacy">
+<a class="back" onclick="goHome()">← Back to Home</a>
+<div class="article-title">Internal Privacy Notice</div>
+<p>Last updated: January 20, 2026</p>
+<p>This knowledge tool is for internal company use only.</p>
+<p><strong>Information in the System</strong></p>
+<ul>
+<li>Employee names, usernames, or work email addresses</li>
+<li>Internal documents and knowledge content</li>
+<li>Basic system usage logs (e.g., access times)</li>
+</ul>
+<p>Only work-related information should be stored.</p>
+<p><strong>How Information Is Used</strong></p>
+<ul>
+<li>Share and manage internal knowledge</li>
+<li>Support business operations</li>
+<li>Maintain system security and reliability</li>
+</ul>
+<p>Access and security limited to authorized employees...</p>
+<p>Questions? Contact: esaquilayan@supplylogic.com</p>
+</section>
+
+<footer>
+<p>&copy; 2026 <a href="#" onclick="openArticle('privacy')">Privacy</a></p>
+</footer>
+
+<script>
+function openArticle(id, highlightWord = '') {
+  document.querySelectorAll('.article').forEach(a => {
+    a.style.display = 'none';
+    a.innerHTML = a.innerHTML.replace(/<span class="highlight">(.*?)<\/span>/g, '$1');
+  });
+  document.querySelector('.hero').style.display = 'none';
+  const article = document.getElementById(id);
+  article.style.display = 'block';
+  if (highlightWord) highlightKeyword(article, highlightWord);
+}
+
+function goHome() {
+  document.querySelectorAll('.article').forEach(a => {
+    a.style.display = 'none';
+    a.innerHTML = a.innerHTML.replace(/<span class="highlight">(.*?)<\/span>/g, '$1');
+  });
+  document.querySelector('.hero').style.display = 'flex';
+}
+
+function toggleDarkMode() {
+  document.body.classList.toggle('dark-mode');
+}
+
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+
+function highlightKeyword(article, word) {
+  if (!word) return;
+  const regex = new RegExp(`(${word})`, 'gi');
+  article.innerHTML = article.innerHTML.replace(regex, '<span class="highlight">$1</span>');
+}
+
+function performSearch() {
+  const input = document.getElementById('search').value.toLowerCase();
+  const results = [];
+  const articles = {
+    'terms':'Terms, Use, & Definitions',
+    'marcom':'Marcom Central Function',
+    'marketing':'MarketingBench Function',
+    'companies':'Companies & URLs',
+    'privacy':'Internal Privacy Notice'
+  };
+  for(const id in articles){
+    if(articles[id].toLowerCase().includes(input)){
+      results.push({id, title:articles[id]});
+    }
+  }
+  const container = document.getElementById('search-results');
+  container.innerHTML = '';
+  results.forEach(r => {
+    const div = document.createElement('div');
+    div.className = 'search-result';
+    div.textContent = r.title;
+    div.onclick = () => openArticle(r.id, input);
+    container.appendChild(div);
+  });
+}
+</script>
+
+</body>
+</html>
