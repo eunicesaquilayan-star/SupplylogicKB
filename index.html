@@ -173,6 +173,7 @@ footer a {
   <p>Articles:</p>
   <ul>
     <li onclick="openArticle('terms')">Terms, Use, & Definitions</li>
+    <li onclick="openArticle('demand')">DemandBridge Function</li>
     <li onclick="openArticle('marcom')">Marcom Central Function</li>
     <li onclick="openArticle('marketing')">MarketingBench Function</li>
     <li onclick="openArticle('companies')">Companies & URLs</li>
@@ -365,42 +366,32 @@ Click PREVIEW before you check out. You can’t proceed if you will not click PR
 <img src="images/DBE-14.png" alt="DBE 14">
 </section>
   
-<a class="back" onclick="goHome()">← Back to Home</a>
-<div class="article-title">Companies & URLs</div>
-                    <p><strong>Marcom Central</strong></p>
-<p>7-Eleven - https://7-elevenbrandcentral.dsimarketnow.com/</p> 
-<p>American Airlines Credit Union - aafcu.dsimarketnow.com</p>
-<p>Applebee's - https://applebees.dsimarketnow.com</p>
-<p>Brinker - http://brinker.dsimarketnow.com</p>
-<p>Buff City Soap - https://buffbrandstore.dsimarketnow.com</p>
-<p>Cash America - http://cashamerica.dsimarketnow.com</p>
-<p>Choice  Hotels (Previously Radisson) - https://choicehotels.dsimarketnow.com</p>
-<p>Dave & Buster's / Main Event - daveandbusters.dsimarketnow.com</p>
-<p>Denny's - dennys.dsimarketnow.com</p>
-<p>Fogo de Chao - http://fogo.dsimarketnow.com/</p>
-<p>IHOP - http://ihop.dsimarketnow.com</p>
-<p>Main Event / Dave & Buster's - https://mainevent.dsimarketnow.com/</p>
-<p>Noodles & Company - http://noodles.dsimarketnow.com</p>
-<p>Pei Wei - https://peiwei.dsimarketnow.com</p>
-<p>PF Chang's China Bistro, Inc - https://marcomcentral.app.pti.com/DataSource/PFChangs</p>
-<p>Pieology - https://pieology.dsimarketnow.com/</p>
-<p>Pizza Hut - https://pizzahut.dsimarketnow.com</p>
-<p>Save-A-Lot< - https://sal.dsimarketnow.com</p>
-<p>Steak N Shake - https://steaknshake.dsimarketnow.com/</p>
-<p>United Industries / Spectrum Brands - https://spectrum.dsimarketnow.com/</p>
+<section class="article" id="companies">
+  <a class="back" onclick="goHome()">← Back to Home</a>
+  <div class="article-title">Companies & URLs</div>
 
-                      <p><strong>Marcom Central</strong></p>
-<p>Companies - URL</p> 
-<p>Bayada Wear - Bayada Wear - https://bayadawear.com/</p>
-<p>First Watch Shop - First Watch Cookbook - https://firstwatchshop.com/</p>
-<p>First Watch Swag - First Watch Swag - https://firstwatchswag.com/</p>
-<p>KOC - KofC - CIS - knightsofcolombusstore.myshopify.com</p>
-<p>Learfield - Learfield - https://store.learfield.com/</p>
-<p>Raising Cane's Gear - Raising Cane's (Cane's Gear) - https://raisingcanesgear.com/</p>
-<p>Sevita - Sevit - The Home Depot - https://rewardsbyhomer.com</p>
-<p>Dave & Buster’s - Dave & Buster’s - shop.daveandbusters.com</p>
-<p>Premise Health - Premise Health - shop.premisehealth.com</p>
-<p><a href="https://docs.google.com/spreadsheets/d/1oh4_y0JDSTbJ108A3s4hJdSo-k8OLCJX/edit?usp=drive_link&ouid=108293800666962437810&rtpof=true&sd=true" target="_blank">View Spreadsheet</a></p>
+  <p><strong>Marcom Central</strong></p>
+  <p>7-Eleven - https://7-elevenbrandcentral.dsimarketnow.com/</p> 
+  <p>American Airlines Credit Union - aafcu.dsimarketnow.com</p>
+  <p>Applebee's - https://applebees.dsimarketnow.com</p>
+  <p>Brinker - http://brinker.dsimarketnow.com</p>
+  <p>Buff City Soap - https://buffbrandstore.dsimarketnow.com</p>
+  <p>Cash America - http://cashamerica.dsimarketnow.com</p>
+  <p>Choice Hotels - https://choicehotels.dsimarketnow.com</p>
+  <p>Dave & Buster's - daveandbusters.dsimarketnow.com</p>
+  <p>Denny's - dennys.dsimarketnow.com</p>
+  <p>IHOP - http://ihop.dsimarketnow.com</p>
+
+  <p><strong>Other Stores</strong></p>
+  <p>Bayada Wear - https://bayadawear.com/</p>
+  <p>First Watch Shop - https://firstwatchshop.com/</p>
+  <p>Raising Cane's Gear - https://raisingcanesgear.com/</p>
+
+  <p>
+    <a href="https://docs.google.com/spreadsheets/d/1oh4_y0JDSTbJ108A3s4hJdSo-k8OLCJX/edit" target="_blank">
+      View Spreadsheet
+    </a>
+  </p>
 </section>
 
 <section class="article" id="privacy">
@@ -435,9 +426,11 @@ function openArticle(id, highlightWord = '') {
     a.style.display = 'none';
     a.innerHTML = a.innerHTML.replace(/<span class="highlight">(.*?)<\/span>/g, '$1');
   });
+
   document.querySelector('.hero').style.display = 'none';
   const article = document.getElementById(id);
   article.style.display = 'block';
+
   if (highlightWord) highlightKeyword(article, highlightWord);
 }
 
@@ -447,47 +440,69 @@ function goHome() {
     a.innerHTML = a.innerHTML.replace(/<span class="highlight">(.*?)<\/span>/g, '$1');
   });
   document.querySelector('.hero').style.display = 'flex';
-
+  document.getElementById('search-results').innerHTML = '';
 }
 
 function toggleSidebar() {
   document.getElementById('sidebar').classList.toggle('open');
 }
 
-function highlightKeyword(article, word) {
-  if (!word) return;
-  const regex = new RegExp(`(${word})`, 'gi');
-  article.innerHTML = article.innerHTML.replace(regex, '<span class="highlight">$1</span>');
-}
-
+/* 🔍 FULL CONTENT SEARCH */
 function performSearch() {
-  const input = document.getElementById('search').value.toLowerCase();
-  const results = [];
-  const articles = {
-    'terms':'Terms, Use, & Definitions',
-    'marcom':'Marcom Central Function',
-    'marketing':'MarketingBench Function',
-    'companies':'Companies & URLs',
-    'privacy':'Internal Privacy Notice'
-  };
-  for(const id in articles){
-    if(articles[id].toLowerCase().includes(input)){
-      results.push({id, title:articles[id]});
-    }
-  }
+  const input = document.getElementById('search').value.toLowerCase().trim();
   const container = document.getElementById('search-results');
   container.innerHTML = '';
-  results.forEach(r => {
-    const div = document.createElement('div');
-    div.className = 'search-result';
-    div.textContent = r.title;
-    div.onclick = () => openArticle(r.id, input);
-    container.appendChild(div);
+
+  if (!input) return;
+
+  document.querySelectorAll('.article').forEach(article => {
+    const id = article.id;
+    const title = article.querySelector('.article-title')?.textContent || '';
+    const content = article.textContent || '';
+
+    if (
+      title.toLowerCase().includes(input) ||
+      content.toLowerCase().includes(input)
+    ) {
+      const div = document.createElement('div');
+      div.className = 'search-result';
+      div.textContent = title || id;
+      div.onclick = () => openArticle(id, input);
+      container.appendChild(div);
+    }
+  });
+}
+
+/* 🟨 SAFE HIGHLIGHT */
+function highlightKeyword(article, word) {
+  if (!word) return;
+
+  const walker = document.createTreeWalker(
+    article,
+    NodeFilter.SHOW_TEXT,
+    null,
+    false
+  );
+
+  const regex = new RegExp(`(${word})`, 'gi');
+  const nodes = [];
+
+  while (walker.nextNode()) {
+    nodes.push(walker.currentNode);
+  }
+
+  nodes.forEach(node => {
+    if (regex.test(node.nodeValue)) {
+      const span = document.createElement('span');
+      span.innerHTML = node.nodeValue.replace(regex, '<span class="highlight">$1</span>');
+      node.parentNode.replaceChild(span, node);
+    }
   });
 }
 </script>
 
 </body>
 </html>
+
 
 
