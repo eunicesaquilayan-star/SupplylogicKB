@@ -15,7 +15,6 @@ body {
   color: #000;
 }
 
-/* HEADER */
 header {
   display: flex;
   align-items: center;
@@ -37,7 +36,6 @@ header button {
   cursor: pointer;
 }
 
-/* HERO */
 .hero {
   display: flex;
   flex-direction: column;
@@ -58,7 +56,6 @@ header button {
   font-size: 16px;
 }
 
-/* SEARCH RESULTS */
 #search-results {
   margin-top: 10px;
   width: 50%;
@@ -79,12 +76,11 @@ header button {
   background: #ddd;
 }
 
-/* SIDEBAR */
 .sidebar {
   position: fixed;
   top: 70px;
-  right: -200px;
-  width: 200px;
+  right: -220px;
+  width: 220px;
   background: #24194F;
   color: white;
   height: 100%;
@@ -96,7 +92,16 @@ header button {
   right: 0;
 }
 
-/* ARTICLES */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
 .article {
   display: none;
   padding: 20px;
@@ -107,57 +112,35 @@ header button {
 }
 
 .article-title {
+  font-size: 22px;
   font-weight: 700;
-  font-size: 20px;
   margin-bottom: 15px;
+}
+
+.article img {
+  display: block;
+  margin: 10px 0;
+  max-width: 100%;
 }
 
 .back {
   cursor: pointer;
-  font-weight: bold;
   color: #24194F;
-}
-
-/* TABLES (NEW) */
-.table-wrapper {
-  overflow-x: auto;
-}
-
-.article-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: white;
-}
-
-.article-table th,
-.article-table td {
-  border: 1px solid #ccc;
-  padding: 10px;
-  vertical-align: top;
-  font-size: 14px;
-}
-
-.article-table th {
-  background: #24194F;
-  color: white;
-}
-
-.article-table tr:nth-child(even) {
-  background: #f9f9f9;
-}
-
-/* HIGHLIGHT */
-.highlight {
-  background-color: yellow;
   font-weight: bold;
+  margin-bottom: 10px;
+  display: inline-block;
 }
 
-/* FOOTER */
 footer {
   background: #24194F;
   color: white;
   text-align: center;
   padding: 15px;
+}
+
+.highlight {
+  background-color: yellow;
+  font-weight: bold;
 }
 </style>
 </head>
@@ -174,8 +157,12 @@ footer {
 <div class="sidebar" id="sidebar">
   <button onclick="toggleSidebar()">✖ Close</button>
   <ul>
-    <li onclick="openArticle('terms')">Terms, Use, & Definitions</li>
+    <li onclick="openArticle('terms')">Terms & Definitions</li>
+    <li onclick="openArticle('demand')">DemandBridge</li>
+    <li onclick="openArticle('marcom')">Marcom Central</li>
+    <li onclick="openArticle('marketing')">MarketingBench</li>
     <li onclick="openArticle('companies')">Companies & URLs</li>
+    <li onclick="openArticle('privacy')">Privacy</li>
   </ul>
 </div>
 
@@ -185,91 +172,113 @@ footer {
   <div id="search-results"></div>
 </div>
 
-<!-- TERMS -->
+<!-- ================= TERMS ================= -->
 <section class="article" id="terms">
-  <a class="back" onclick="goHome()">← Back to Home</a>
-  <div class="article-title">Terms, Use, & Definitions</div>
+<a class="back" onclick="goHome()">← Back</a>
+<div class="article-title">Terms, Use, & Definitions</div>
 
-  <div class="table-wrapper">
-    <table class="article-table">
-      <thead>
-        <tr>
-          <th>Term</th>
-          <th>General Description</th>
-          <th>Detailed Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>AP</td>
-          <td>Accounts Payable</td>
-          <td>Money SLWM owes to vendors.</td>
-        </tr>
-        <tr>
-          <td>AR</td>
-          <td>Accounts Receivable</td>
-          <td>Money clients owe SLWM.</td>
-        </tr>
-        <tr>
-          <td>Back-Ordered</td>
-          <td>Out of stock</td>
-          <td>Item unavailable but expected to be fulfilled later.</td>
-        </tr>
-        <tr>
-          <td>Tracking Number</td>
-          <td>Shipment reference</td>
-          <td>Used to track delivery status.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<p><strong>AP</strong> – Accounts Payable: Money SLWM owes vendors.</p>
+<p><strong>AR</strong> – Accounts Receivable: Money clients owe SLWM.</p>
+<p><strong>AC</strong> – Accounts Specialist assisting client marketing needs.</p>
+<p><strong>ASI</strong> – Advertising Specialty Institute distributor registration.</p>
+<p><strong>Benchmarking</strong> – Comparing performance against standards.</p>
+<p><strong>BO</strong> – Backorder when inventory is unavailable.</p>
+<p><strong>DemandBridge</strong> – Internal system for vendor orders and inventory.</p>
+<p><strong>Dialpad</strong> – Communication and call platform.</p>
+<p><strong>MarcomCentral</strong> – Brand and marketing asset platform.</p>
+<p><strong>MyMarketingBench</strong> – Marketing insights and order tracking.</p>
+<p><strong>PO</strong> – Purchase Order authorizing vendor work.</p>
+<p><strong>Tracking Number</strong> – Shipment identifier.</p>
+<p><strong>UOM</strong> – Unit of Measure (Each, Box, Pack).</p>
 </section>
 
-<!-- COMPANIES -->
-<section class="article" id="companies">
-  <a class="back" onclick="goHome()">← Back to Home</a>
-  <div class="article-title">Companies & URLs</div>
+<!-- ================= DEMANDBRIDGE ================= -->
+<section class="article" id="demand">
+<a class="back" onclick="goHome()">← Back</a>
+<div class="article-title">DemandBridge Function</div>
 
-  <div class="table-wrapper">
-    <table class="article-table">
-      <thead>
-        <tr>
-          <th>Company</th>
-          <th>URL</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>7-Eleven</td>
-          <td><a href="https://7-elevenbrandcentral.dsimarketnow.com/" target="_blank">Visit</a></td>
-        </tr>
-        <tr>
-          <td>Applebee’s</td>
-          <td><a href="https://applebees.dsimarketnow.com" target="_blank">Visit</a></td>
-        </tr>
-        <tr>
-          <td>Buff City Soap</td>
-          <td><a href="https://buffbrandstore.dsimarketnow.com" target="_blank">Visit</a></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<p><strong>How to Login</strong></p>
+<p>1. Enter login ID (hidden input)</p>
+<p>2. Enter password</p>
+<p>3. Select DB GUI</p>
+<p>4. Accept prompts</p>
+
+<p><strong>Order Search</strong></p>
+<p>1. Order Lookup</p>
+<p>2. Enter order number</p>
+<p>3. View open/closed orders</p>
+</section>
+
+<!-- ================= MARCOM ================= -->
+<section class="article" id="marcom">
+<a class="back" onclick="goHome()">← Back</a>
+<div class="article-title">Marcom Central Function</div>
+
+<p>Login via VPN</p>
+<p>Select caller account</p>
+<p>Manage users</p>
+<p>Reset passwords</p>
+<p>Manage Brinker catalogs</p>
+<p>Checkout, shipping, billing steps</p>
+</section>
+
+<!-- ================= MARKETING BENCH ================= -->
+<section class="article" id="marketing">
+<a class="back" onclick="goHome()">← Back</a>
+<div class="article-title">MarketingBench Function</div>
+
+<p>Change passwords</p>
+<p>Search users</p>
+<p>Review orders</p>
+<p>Track shipments</p>
+</section>
+
+<!-- ================= COMPANIES ================= -->
+<section class="article" id="companies">
+<a class="back" onclick="goHome()">← Back</a>
+<div class="article-title">Companies & URLs</div>
+
+<p>7-Eleven – https://7-elevenbrandcentral.dsimarketnow.com</p>
+<p>Applebee’s – https://applebees.dsimarketnow.com</p>
+<p>Brinker – http://brinker.dsimarketnow.com</p>
+<p>Buff City Soap – https://buffbrandstore.dsimarketnow.com</p>
+<p>Bayada Wear – https://bayadawear.com</p>
+<p>Raising Cane’s – https://raisingcanesgear.com</p>
+</section>
+
+<!-- ================= PRIVACY ================= -->
+<section class="article" id="privacy">
+<a class="back" onclick="goHome()">← Back</a>
+<div class="article-title">Internal Privacy Notice</div>
+
+<p>Internal company use only.</p>
+<p>Access limited to authorized employees.</p>
+<p>Contact: esaquilayan@supplylogic.com</p>
 </section>
 
 <footer>
-  <p>&copy; 2026 SupplyLogic</p>
+<p>&copy; 2026 SupplyLogic</p>
 </footer>
 
 <script>
-function openArticle(id, highlightWord = '') {
-  document.querySelectorAll('.article').forEach(a => a.style.display = 'none');
+function openArticle(id, word = '') {
+  document.querySelectorAll('.article').forEach(a => {
+    a.style.display = 'none';
+    a.innerHTML = a.innerHTML.replace(/<span class="highlight">(.*?)<\/span>/g, '$1');
+  });
   document.querySelector('.hero').style.display = 'none';
-  document.getElementById(id).style.display = 'block';
+  const article = document.getElementById(id);
+  article.style.display = 'block';
+  if (word) highlightKeyword(article, word);
 }
 
 function goHome() {
-  document.querySelectorAll('.article').forEach(a => a.style.display = 'none');
+  document.querySelectorAll('.article').forEach(a => {
+    a.style.display = 'none';
+    a.innerHTML = a.innerHTML.replace(/<span class="highlight">(.*?)<\/span>/g, '$1');
+  });
   document.querySelector('.hero').style.display = 'flex';
+  document.getElementById('search-results').innerHTML = '';
 }
 
 function toggleSidebar() {
@@ -280,7 +289,6 @@ function performSearch() {
   const input = document.getElementById('search').value.toLowerCase();
   const results = document.getElementById('search-results');
   results.innerHTML = '';
-
   if (!input) return;
 
   document.querySelectorAll('.article').forEach(article => {
@@ -288,10 +296,23 @@ function performSearch() {
       const div = document.createElement('div');
       div.className = 'search-result';
       div.textContent = article.querySelector('.article-title').textContent;
-      div.onclick = () => openArticle(article.id);
+      div.onclick = () => openArticle(article.id, input);
       results.appendChild(div);
     }
   });
+}
+
+function highlightKeyword(article, word) {
+  const walker = document.createTreeWalker(article, NodeFilter.SHOW_TEXT);
+  const regex = new RegExp(`(${word})`, 'gi');
+  let node;
+  while (node = walker.nextNode()) {
+    if (regex.test(node.nodeValue)) {
+      const span = document.createElement('span');
+      span.innerHTML = node.nodeValue.replace(regex, '<span class="highlight">$1</span>');
+      node.parentNode.replaceChild(span, node);
+    }
+  }
 }
 </script>
 
