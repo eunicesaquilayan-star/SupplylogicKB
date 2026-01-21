@@ -4,9 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Knowledge Base Tool</title>
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Aptos:wght@400;700&display=swap');
 
+/* ===== BASE ===== */
 body {
   margin: 0;
   font-family: 'Aptos', sans-serif;
@@ -14,6 +16,7 @@ body {
   color: #000;
 }
 
+/* ===== HEADER ===== */
 header {
   display: flex;
   align-items: center;
@@ -23,9 +26,7 @@ header {
   padding: 10px 20px;
 }
 
-header img {
-  height: 50px;
-}
+header img { height: 50px; }
 
 header button {
   background: none;
@@ -35,6 +36,7 @@ header button {
   cursor: pointer;
 }
 
+/* ===== HERO ===== */
 .hero {
   display: flex;
   flex-direction: column;
@@ -46,7 +48,7 @@ header button {
   text-align: center;
 }
 
-.hero input[type="text"] {
+.hero input {
   padding: 12px;
   width: 50%;
   max-width: 500px;
@@ -57,7 +59,6 @@ header button {
 }
 
 #search-results {
-  margin-top: 10px;
   width: 50%;
   max-width: 500px;
   text-align: left;
@@ -72,10 +73,9 @@ header button {
   cursor: pointer;
 }
 
-.search-result:hover {
-  background: #ddd;
-}
+.search-result:hover { background: #ddd; }
 
+/* ===== SIDEBAR ===== */
 .sidebar {
   position: fixed;
   top: 70px;
@@ -88,9 +88,7 @@ header button {
   padding: 10px;
 }
 
-.sidebar.open {
-  right: 0;
-}
+.sidebar.open { right: 0; }
 
 .sidebar button {
   background: none;
@@ -101,6 +99,7 @@ header button {
   margin-bottom: 10px;
 }
 
+/* ===== ARTICLES ===== */
 .article {
   display: none;
   padding: 20px;
@@ -116,18 +115,10 @@ header button {
   margin-bottom: 15px;
 }
 
-.article p {
-  font-size: 15px;
-  margin-bottom: 10px;
-}
-
 .article img {
   display: block;
   margin: 10px 0;
-  min-width: 300px;
   max-width: 700px;
-  min-height: 100px;
-  max-height: 450px;
 }
 
 .back {
@@ -137,51 +128,24 @@ header button {
   color: #24194F;
   font-weight: bold;
 }
-  
- .terms-table {
-    margin-top: 1.5rem;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    overflow: hidden;
-  }
-
-  .terms-header,
-  .term-row {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    padding: 0.75rem;
-  }
-
-  .terms-header {
-    background: #f4f6f8;
-    font-weight: 600;
-    border-bottom: 1px solid #ddd;
-  }
-
-  .term-row {
-    border-bottom: 1px solid #eee;
-  }
-
-  .term-row:last-child {
-    border-bottom: none;
-  }
-
-  .term {
-    font-weight: 600;
-  }
-
-  .definition {
-    line-height: 1.4;
-  }
-
-  .companies-table {
+/* ===== TABLE CONTAINERS ===== */
+.terms-table,
+.companies-table {
   margin-top: 1.5rem;
   border: 1px solid #ddd;
   border-radius: 6px;
   overflow: hidden;
-  background: #fff;
 }
 
+/* ===== TERMS TABLE ===== */
+.terms-header,
+.term-row {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  padding: 0.75rem;
+}
+
+/* ===== COMPANIES TABLE ===== */
 .companies-header,
 .company-row {
   display: grid;
@@ -190,26 +154,32 @@ header button {
   align-items: center;
 }
 
+/* ===== HEADERS ===== */
+.terms-header,
 .companies-header {
   background: #f4f6f8;
   font-weight: 700;
-  border-bottom: 1px solid #ddd;
 }
 
+/* ===== ROW BORDERS ===== */
+.term-row,
 .company-row {
   border-bottom: 1px solid #eee;
 }
 
+.term-row:last-child,
 .company-row:last-child {
   border-bottom: none;
 }
 
+/* ===== LINKS ===== */
 .company-row a {
   color: #24194F;
   text-decoration: underline;
 }
 
-/* Section headers */
+
+/* ===== GROUP HEADERS ===== */
 .companies-group {
   background: #24194F;
   color: white;
@@ -217,51 +187,36 @@ header button {
   padding: 0.75rem;
   margin-top: 1.5rem;
 }
+.companies-group.marcom {
+  background: #1565c0;
+}
 
 .companies-group.shopify {
   background: #2e7d32;
 }
 
-/* Mobile behavior */
-@media (max-width: 700px) {
-  .companies-header {
-    display: none;
-  }
-
-  .company-row {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-  }
+/* ===== HIGHLIGHT ===== */
+.highlight {
+  background: yellow;
+  font-weight: bold;
 }
-
-}
-
+/* ===== FOOTER ===== */
 footer {
   background: #24194F;
   color: white;
   text-align: center;
   padding: 15px;
-  margin-top: 30px;
 }
+footer a { color: white; }
 
-footer a {
-  color: white;
-  text-decoration: underline;
-}
-
-
-.highlight {
-  background-color: yellow;
-  font-weight: bold;
-}
 </style>
 </head>
+
 <body>
 
 <header>
   <img src="images/Supply-logic.png" alt="Supply logic">
   <div>
-    <button onclick="toggleDarkMode()">Dark Mode</button>
     <button onclick="toggleSidebar()">☰ Sidebar</button>
   </div>
 </header>
@@ -564,7 +519,7 @@ Please take note that “YOU WILL ONLY ACCESS THIS AREA.”. You will not access
 <img src="images/Marcom-7.png" alt="Marcom 7">
 <p> On this part of the portal, you can search the users by User’s Name, external ID, and user ID. The User’s name format is First Name Last Name. 
 You can also search them by a part of their name in case the user only provided it. An example image is seen below.</p>
-<p> Changing User Account Details. (Changing Password)</strong></p>
+<p><strong>Changing User Account Details (Changing Password)</strong></p>
 <p>1. Search the account of the user by their provided details. (e.g. Burke.)</p>
 <p>2. Double Click on the name of the correct account of the user. (Remember not to click the Login Button, but on the name of the User’s Account)</p>
 <img src="images/Marcom-8.png" alt="Marcom 8">
@@ -575,7 +530,7 @@ You can also search them by a part of their name in case the user only provided 
 <p>Click <strong>EDIT</strong> on the top right to make changes.</p>
 <img src="images/Marcom-11.png" alt="Marcom 11">
 <p>5. Change the password of the user on Password Text Box. Make sure to put the same Password on the Confirm Password Text Box.</p>
-<p>6. Inform the caller about the password change and they need to change the password to their preferred password onc0e they are able to login back to their account.</p>
+<p>6. Inform the caller about the password change and they need to change the password to their preferred password once they are able to login back to their account.</p>
 <p>7. Click the save button on the top right of the screen.
 <img src="images/Marcom-12.png" alt="Marcom 12">
 <p>Change the password and confirm in the Confirm Password box. Click save.</p>
@@ -697,8 +652,11 @@ Click PREVIEW before you check out. You can’t proceed if you will not click PR
 </section>
   
 <section class="article" id="companies">
+  <a class="back" onclick="goHome()">← Back to Home</a>
+  <div class="article-title">Companies & URLs</div>
+
   <!-- MARCOM CENTRAL -->
-  <div class="companies-group marcom"><strong>Marcom Central</strong>l</div>
+  <div class="companies-group marcom"><strong>Marcom Central</strong></div>
 
   <div class="companies-header">
     <div>Company</div>
@@ -728,21 +686,6 @@ Click PREVIEW before you check out. You can’t proceed if you will not click PR
   <div class="company-row">
     <div>Buff City Soap</div>
     <div><a href="https://buffbrandstore.dsimarketnow.com" target="_blank">buffbrandstore.dsimarketnow.com</a></div>
-  </div>
-
-  <div class="company-row">
-    <div>Cash America</div>
-    <div><a href="http://cashamerica.dsimarketnow.com" target="_blank">cashamerica.dsimarketnow.com</a></div>
-  </div>
-
-  <div class="company-row">
-    <div>Choice Hotels</div>
-    <div><a href="https://choicehotels.dsimarketnow.com" target="_blank">choicehotels.dsimarketnow.com</a></div>
-  </div>
-
-  <div class="company-row">
-    <div>Dave &amp; Buster’s / Main Event</div>
-    <div><a href="https://daveandbusters.dsimarketnow.com" target="_blank">daveandbusters.dsimarketnow.com</a></div>
   </div>
 
   <!-- SHOPIFY -->
@@ -787,10 +730,9 @@ Click PREVIEW before you check out. You can’t proceed if you will not click PR
     <div>Premise Health</div>
     <div><a href="https://shop.premisehealth.com" target="_blank">shop.premisehealth.com</a></div>
   </div>
-
-</div>
 </section>
 
+  
 <section class="article" id="privacy">
 <a class="back" onclick="goHome()">← Back to Home</a>
 <div class="article-title">Internal Privacy Notice</div>
@@ -814,28 +756,29 @@ Click PREVIEW before you check out. You can’t proceed if you will not click PR
 </section>
 
 <footer>
-<p>&copy; 2026 <a href="#" onclick="openArticle('privacy')">Privacy</a></p>
+  <p>&copy; 2026 <a href="#" onclick="openArticle('privacy')">Privacy</a></p>
 </footer>
 
-<script>
-function openArticle(id, highlightWord = '') {
-  document.querySelectorAll('.article').forEach(a => {
-    a.style.display = 'none';
-    a.innerHTML = a.innerHTML.replace(/<span class="highlight">(.*?)<\/span>/g, '$1');
-  });
 
+<script>
+/* ===== NAVIGATION ===== */
+function openArticle(id, word = '') {
+  clearHighlights();
+
+  document.querySelectorAll('.article').forEach(a => a.style.display = 'none');
   document.querySelector('.hero').style.display = 'none';
+  document.getElementById('sidebar').classList.remove('open');
+
   const article = document.getElementById(id);
+  if (!article) return;
   article.style.display = 'block';
 
-  if (highlightWord) highlightKeyword(article, highlightWord);
+  if (word) highlight(article, word);
 }
 
 function goHome() {
-  document.querySelectorAll('.article').forEach(a => {
-    a.style.display = 'none';
-    a.innerHTML = a.innerHTML.replace(/<span class="highlight">(.*?)<\/span>/g, '$1');
-  });
+  clearHighlights();
+  document.querySelectorAll('.article').forEach(a => a.style.display = 'none');
   document.querySelector('.hero').style.display = 'flex';
   document.getElementById('search-results').innerHTML = '';
 }
@@ -844,64 +787,36 @@ function toggleSidebar() {
   document.getElementById('sidebar').classList.toggle('open');
 }
 
-/* 🔍 FULL CONTENT SEARCH */
+/* ===== SEARCH ===== */
 function performSearch() {
-  const input = document.getElementById('search').value.toLowerCase().trim();
-  const container = document.getElementById('search-results');
-  container.innerHTML = '';
-
-  if (!input) return;
+  const q = document.getElementById('search').value.toLowerCase().trim();
+  const results = document.getElementById('search-results');
+  results.innerHTML = '';
+  if (!q) return;
 
   document.querySelectorAll('.article').forEach(article => {
-    const id = article.id;
-    const title = article.querySelector('.article-title')?.textContent || '';
-    const content = article.textContent || '';
-
-    if (
-      title.toLowerCase().includes(input) ||
-      content.toLowerCase().includes(input)
-    ) {
+    if (article.textContent.toLowerCase().includes(q)) {
       const div = document.createElement('div');
       div.className = 'search-result';
-      div.textContent = title || id;
-      div.onclick = () => openArticle(id, input);
-      container.appendChild(div);
+      div.textContent =
+        article.querySelector('.article-title')?.textContent || article.id;
+      div.onclick = () => openArticle(article.id, q);
+      results.appendChild(div);
     }
-  });
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const container = document.getElementById("termsBody");
-    const rows = Array.from(container.children);
-
-    rows
-      .sort((a, b) =>
-        a.dataset.term.toLowerCase().localeCompare(
-          b.dataset.term.toLowerCase()
-        )
-      )
-      .forEach(row => container.appendChild(row));
   });
 }
 
-/* 🟨 SAFE HIGHLIGHT */
-function highlightKeyword(article, word) {
-  if (!word) return;
-
-  const walker = document.createTreeWalker(
-    article,
-    NodeFilter.SHOW_TEXT,
-    null,
-    false
-  );
-
-  const regex = new RegExp(`(${word})`, 'gi');
+/* ===== SAFE HIGHLIGHT ===== */
+function highlight(container, word) {
+  const safeWord = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const regex = new RegExp(`(${safeWord})`, 'gi');
+  const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT);
   const nodes = [];
 
-  while (walker.nextNode()) {
-    nodes.push(walker.currentNode);
-  }
+  while (walker.nextNode()) nodes.push(walker.currentNode);
 
   nodes.forEach(node => {
+    if (!node.nodeValue.trim()) return;
     if (regex.test(node.nodeValue)) {
       const span = document.createElement('span');
       span.innerHTML = node.nodeValue.replace(regex, '<span class="highlight">$1</span>');
@@ -909,10 +824,29 @@ function highlightKeyword(article, word) {
     }
   });
 }
+
+function clearHighlights() {
+  document.querySelectorAll('.highlight').forEach(h =>
+    h.replaceWith(document.createTextNode(h.textContent))
+  );
+}
+
+/* ===== SORT TERMS (ONCE) ===== */
+document.addEventListener('DOMContentLoaded', () => {
+  const body = document.getElementById('termsBody');
+  if (!body) return;
+
+  [...body.children]
+    .sort((a, b) =>
+      a.dataset.term.toLowerCase().localeCompare(b.dataset.term.toLowerCase())
+    )
+    .forEach(row => body.appendChild(row));
+});
 </script>
 
 </body>
 </html>
+
 
 
 
