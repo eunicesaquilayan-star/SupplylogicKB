@@ -1,159 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Knowledge Base Tool</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Knowledge Base Tool</title>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Aptos:wght@400;700&display=swap');
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Aptos:wght@400;700&display=swap');
 
-body {
-  margin: 0;
-  font-family: 'Aptos', sans-serif;
-  background-color: #f4f4f4;
-  color: #000;
-}
+    body {
+      margin: 0;
+      font-family: 'Aptos', sans-serif;
+      background-color: #f4f4f4;
+      color: #000;
+    }
 
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #24194F;
-  color: white;
-  padding: 10px 20px;
-}
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #24194F;
+      color: white;
+      padding: 10px 20px;
+    }
 
-header img { height: 50px; }
+    header img {
+      height: 50px;
+    }
 
-header button {
-  background: none;
-  border: 1px solid white;
-  color: white;
-  padding: 5px 10px;
-  cursor: pointer;
-}
+    header button {
+      background: none;
+      border: 1px solid white;
+      color: white;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
 
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: calc(100vh - 70px);
-  background: linear-gradient(135deg, #24194F, #1A1640);
-  color: white;
-  text-align: center;
-}
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: calc(100vh - 70px);
+      background: linear-gradient(135deg, #24194F, #1A1640);
+      color: white;
+      text-align: center;
+    }
 
-.hero input {
-  padding: 12px;
-  width: 50%;
-  max-width: 500px;
-  border-radius: 5px;
-  border: none;
-  font-size: 16px;
-}
+    .hero input[type="text"] {
+      padding: 12px;
+      width: 50%;
+      max-width: 500px;
+      border-radius: 5px;
+      border: none;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
 
-#search-results {
-  margin-top: 10px;
-  width: 50%;
-  max-width: 500px;
-  text-align: left;
-}
+    #search-results {
+      margin-top: 10px;
+      width: 50%;
+      max-width: 500px;
+      text-align: left;
+    }
 
-.search-result {
-  background: white;
-  color: #24194F;
-  padding: 8px;
-  margin-bottom: 5px;
-  border-radius: 4px;
-  cursor: pointer;
-}
+    .search-result {
+      background: white;
+      color: #24194F;
+      padding: 8px;
+      margin-bottom: 5px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
 
-.search-result:hover { background: #ddd; }
+    .search-result:hover {
+      background: #ddd;
+    }
 
-.sidebar {
-  position: fixed;
-  top: 70px;
-  right: -200px;
-  width: 200px;
-  background: #24194F;
-  color: white;
-  height: 100%;
-  transition: 0.3s;
-  padding: 10px;
-}
+    .sidebar {
+      position: fixed;
+      top: 70px;
+      right: -200px;
+      width: 200px;
+      background: #24194F;
+      color: white;
+      height: 100%;
+      transition: 0.3s;
+      padding: 10px;
+    }
 
-.sidebar.open { right: 0; }
+    .sidebar.open {
+      right: 0;
+    }
 
-.article {
-  display: none;
-  padding: 20px;
-  max-width: 900px;
-  margin: 20px auto;
-  background-color: #F4F4F4;
-  border-radius: 8px;
-}
+    .sidebar button {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
 
-.article-title {
-  font-weight: 700;
-  font-size: 20px;
-  margin-bottom: 15px;
-}
+    .article {
+      display: none;
+      padding: 20px;
+      max-width: 900px;
+      margin: 20px auto;
+      background-color: #F4F4F4;
+      border-radius: 8px;
+    }
 
-.article img {
-  display: block;
-  margin: 10px 0;
-  max-width: 100%;
-}
+    .article-title {
+      font-weight: 700;
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
 
-.back {
-  cursor: pointer;
-  color: #24194F;
-  font-weight: bold;
-  margin-bottom: 10px;
-  display: inline-block;
-}
+    .article img {
+      display: block;
+      margin: 10px 0;
+      min-width: 300px;
+      max-width: 700px;
+      min-height: 100px;
+      max-height: 450px;
+    }
 
-footer {
-  background: #24194F;
-  color: white;
-  text-align: center;
-  padding: 15px;
-}
+    .back {
+      display: inline-block;
+      margin-bottom: 15px;
+      cursor: pointer;
+      color: #24194F;
+      font-weight: bold;
+    }
 
-.highlight {
-  background-color: yellow;
-  font-weight: bold;
-}
+    footer {
+      background: #24194F;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
 
-/* ===== TABLE ADDITION (SAFE) ===== */
-.table-wrapper { overflow-x: auto; }
+    footer a {
+      color: white;
+      text-decoration: underline;
+    }
 
-.article-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: white;
-}
+    .highlight {
+      background-color: yellow;
+      font-weight: bold;
+    }
 
-.article-table th,
-.article-table td {
-  border: 1px solid #ccc;
-  padding: 10px;
-  vertical-align: top;
-}
+    /* TABLE STYLES (NEW) */
+    .table-wrapper {
+      overflow-x: auto;
+    }
 
-.article-table th {
-  background-color: #24194F;
-  color: white;
-}
-</style>
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+    }
+
+    .data-table th,
+    .data-table td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    .data-table th {
+      background-color: #24194F;
+      color: #fff;
+      font-weight: 700;
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-  <img src="images/Supply-logic.png" alt="Supply logic">
+  <img src="images/Supply-logic.png" alt="Supply logic" />
   <div>
     <button onclick="toggleSidebar()">☰ Sidebar</button>
   </div>
@@ -173,124 +202,103 @@ footer {
 
 <div class="hero">
   <h1>Knowledge Base</h1>
-  <input type="text" id="search" placeholder="Search articles..." oninput="performSearch()">
+  <input type="text" id="search" placeholder="Search articles..." oninput="performSearch()" />
   <div id="search-results"></div>
 </div>
 
-<!-- ================= TERMS TABLE ================= -->
+<!-- TERMS -->
 <section class="article" id="terms">
-<a class="back" onclick="goHome()">← Back to Home</a>
-<div class="article-title">Terms, Use, & Definitions</div>
+  <a class="back" onclick="goHome()">← Back to Home</a>
+  <div class="article-title">Terms, Use, & Definitions</div>
 
-<div class="table-wrapper">
-<table class="article-table">
-<thead>
-<tr>
-  <th>Term</th>
-  <th>General Description</th>
-  <th>Detailed Description</th>
-</tr>
-</thead>
-<tbody>
-<tr><td>Acknowledgement Vendor Confirmation</td><td>Vendor confirmation</td><td>Confirmation of order from a vendor confirming product specifications, pricing, and estimated ship date.</td></tr>
-<tr><td>AP</td><td>Accounts Payable</td><td>Money SLWM owes vendors.</td></tr>
-<tr><td>AR</td><td>Accounts Receivable</td><td>Money clients owe SLWM.</td></tr>
-<tr><td>AC</td><td>Accounts Specialist</td><td>Employee assisting clients with marketing needs.</td></tr>
-<tr><td>ASI</td><td>Advertising Specialty Institute</td><td>Registered distributor allowing lower-cost supplier purchasing.</td></tr>
-<tr><td>BAS Inventory</td><td>Bill As Shipped</td><td>SLWM-owned inventory billed upon release.</td></tr>
-<tr><td>Back-ordered</td><td>Out of stock</td><td>Product temporarily unavailable but expected to ship later.</td></tr>
-<tr><td>Demand Bridge</td><td>Internal system</td><td>Vendor ordering, inventory tracking, and data management.</td></tr>
-<tr><td>Tracking Number</td><td>Shipment ID</td><td>Alphanumeric delivery tracking code.</td></tr>
-<tr><td>UOM</td><td>Unit of Measure</td><td>Each, Box, Pack, Carton, Pad.</td></tr>
-</tbody>
-</table>
-</div>
+  <div class="table-wrapper">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Term</th>
+          <th>General Description</th>
+          <th>Detailed Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>AP</td><td>Accounts Payable</td><td>Money SLWM owes to vendors.</td></tr>
+        <tr><td>AR</td><td>Accounts Receivable</td><td>Money clients owe SLWM.</td></tr>
+        <tr><td>Demand Bridge</td><td>Internal System</td><td>Used for vendor orders, inventory tracking, and data management.</td></tr>
+        <tr><td>Dialpad</td><td>Communication Tool</td><td>Primary calling and AI-powered contact center platform.</td></tr>
+        <tr><td>Tracking Number</td><td>Shipment ID</td><td>Used to track delivery status of an order.</td></tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
-<!-- ================= COMPANIES TABLE ================= -->
+<!-- COMPANIES -->
 <section class="article" id="companies">
-<a class="back" onclick="goHome()">← Back to Home</a>
-<div class="article-title">Companies & URLs</div>
+  <a class="back" onclick="goHome()">← Back to Home</a>
+  <div class="article-title">Companies & URLs</div>
 
-<div class="table-wrapper">
-<table class="article-table">
-<thead>
-<tr><th>Company</th><th>Platform</th><th>URL</th></tr>
-</thead>
-<tbody>
-<tr><td>7-Eleven</td><td>Marcom</td><td><a href="https://7-elevenbrandcentral.dsimarketnow.com/" target="_blank">Open</a></td></tr>
-<tr><td>Applebee’s</td><td>Marcom</td><td><a href="https://applebees.dsimarketnow.com" target="_blank">Open</a></td></tr>
-<tr><td>Brinker</td><td>Marcom</td><td><a href="http://brinker.dsimarketnow.com" target="_blank">Open</a></td></tr>
-<tr><td>Buff City Soap</td><td>Marcom</td><td><a href="https://buffbrandstore.dsimarketnow.com" target="_blank">Open</a></td></tr>
-<tr><td>Bayada Wear</td><td>Shopify</td><td><a href="https://bayadawear.com/" target="_blank">Open</a></td></tr>
-<tr><td>First Watch</td><td>Shopify</td><td><a href="https://firstwatchshop.com/" target="_blank">Open</a></td></tr>
-<tr><td>Raising Cane’s</td><td>Shopify</td><td><a href="https://raisingcanesgear.com/" target="_blank">Open</a></td></tr>
-</tbody>
-</table>
-</div>
+  <div class="table-wrapper">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Platform</th>
+          <th>URL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>7-Eleven</td><td>Marcom Central</td><td><a href="https://7-elevenbrandcentral.dsimarketnow.com/" target="_blank">Visit</a></td></tr>
+        <tr><td>Applebee's</td><td>Marcom Central</td><td><a href="https://applebees.dsimarketnow.com" target="_blank">Visit</a></td></tr>
+        <tr><td>Bayada Wear</td><td>Shopify</td><td><a href="https://bayadawear.com" target="_blank">Visit</a></td></tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
-<!-- ================= ALL OTHER ARTICLES UNCHANGED ================= -->
-<!-- Marcom, MarketingBench, DemandBridge, Privacy remain EXACTLY as you provided -->
+<!-- PRIVACY -->
+<section class="article" id="privacy">
+  <a class="back" onclick="goHome()">← Back to Home</a>
+  <div class="article-title">Internal Privacy Notice</div>
+  <p>Last updated: January 20, 2026</p>
+  <p>This knowledge tool is for internal use only.</p>
+</section>
 
 <footer>
-<p>&copy; 2026 <a href="#" onclick="openArticle('privacy')">Privacy</a></p>
+  <p>&copy; 2026 <a href="#" onclick="openArticle('privacy')">Privacy</a></p>
 </footer>
 
 <script>
-function openArticle(id, highlightWord = '') {
-  document.querySelectorAll('.article').forEach(a => {
-    a.style.display = 'none';
-    a.innerHTML = a.innerHTML.replace(/<span class="highlight">(.*?)<\/span>/g, '$1');
-  });
-  document.querySelector('.hero').style.display = 'none';
-  const article = document.getElementById(id);
-  article.style.display = 'block';
-  if (highlightWord) highlightKeyword(article, highlightWord);
-}
-
-function goHome() {
-  document.querySelectorAll('.article').forEach(a => {
-    a.style.display = 'none';
-    a.innerHTML = a.innerHTML.replace(/<span class="highlight">(.*?)<\/span>/g, '$1');
-  });
-  document.querySelector('.hero').style.display = 'flex';
-  document.getElementById('search-results').innerHTML = '';
-}
-
-function toggleSidebar() {
-  document.getElementById('sidebar').classList.toggle('open');
-}
-
-function performSearch() {
-  const input = document.getElementById('search').value.toLowerCase().trim();
-  const container = document.getElementById('search-results');
-  container.innerHTML = '';
-  if (!input) return;
-
-  document.querySelectorAll('.article').forEach(article => {
-    if (article.textContent.toLowerCase().includes(input)) {
-      const div = document.createElement('div');
-      div.className = 'search-result';
-      div.textContent = article.querySelector('.article-title').textContent;
-      div.onclick = () => openArticle(article.id, input);
-      container.appendChild(div);
-    }
-  });
-}
-
-function highlightKeyword(article, word) {
-  const walker = document.createTreeWalker(article, NodeFilter.SHOW_TEXT);
-  const regex = new RegExp(`(${word})`, 'gi');
-  let node;
-  while (node = walker.nextNode()) {
-    if (regex.test(node.nodeValue)) {
-      const span = document.createElement('span');
-      span.innerHTML = node.nodeValue.replace(regex, '<span class="highlight">$1</span>');
-      node.parentNode.replaceChild(span, node);
-    }
+  function openArticle(id) {
+    document.querySelectorAll('.article').forEach(a => a.style.display = 'none');
+    document.querySelector('.hero').style.display = 'none';
+    document.getElementById(id).style.display = 'block';
   }
-}
+
+  function goHome() {
+    document.querySelectorAll('.article').forEach(a => a.style.display = 'none');
+    document.querySelector('.hero').style.display = 'flex';
+    document.getElementById('search-results').innerHTML = '';
+  }
+
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('open');
+  }
+
+  function performSearch() {
+    const input = document.getElementById('search').value.toLowerCase();
+    const container = document.getElementById('search-results');
+    container.innerHTML = '';
+    if (!input) return;
+
+    document.querySelectorAll('.article').forEach(article => {
+      if (article.textContent.toLowerCase().includes(input)) {
+        const div = document.createElement('div');
+        div.className = 'search-result';
+        div.textContent = article.querySelector('.article-title').textContent;
+        div.onclick = () => openArticle(article.id);
+        container.appendChild(div);
+      }
+    });
+  }
 </script>
 
 </body>
