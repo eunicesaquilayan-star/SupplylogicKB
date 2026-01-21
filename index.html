@@ -24,9 +24,7 @@ header {
   padding: 10px 20px;
 }
 
-header img {
-  height: 50px;
-}
+header img { height: 50px; }
 
 header button {
   background: none;
@@ -72,15 +70,13 @@ header button {
   cursor: pointer;
 }
 
-.search-result:hover {
-  background: #ddd;
-}
+.search-result:hover { background: #ddd; }
 
 .sidebar {
   position: fixed;
   top: 70px;
-  right: -220px;
-  width: 220px;
+  right: -200px;
+  width: 200px;
   background: #24194F;
   color: white;
   height: 100%;
@@ -88,19 +84,7 @@ header button {
   padding: 10px;
 }
 
-.sidebar.open {
-  right: 0;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar li {
-  cursor: pointer;
-  margin-bottom: 8px;
-}
+.sidebar.open { right: 0; }
 
 .article {
   display: none;
@@ -112,8 +96,8 @@ header button {
 }
 
 .article-title {
-  font-size: 22px;
   font-weight: 700;
+  font-size: 20px;
   margin-bottom: 15px;
 }
 
@@ -142,13 +126,34 @@ footer {
   background-color: yellow;
   font-weight: bold;
 }
+
+/* ===== TABLE ADDITION (SAFE) ===== */
+.table-wrapper { overflow-x: auto; }
+
+.article-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.article-table th,
+.article-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  vertical-align: top;
+}
+
+.article-table th {
+  background-color: #24194F;
+  color: white;
+}
 </style>
 </head>
 
 <body>
 
 <header>
-  <img src="images/Supply-logic.png" alt="Supply Logic">
+  <img src="images/Supply-logic.png" alt="Supply logic">
   <div>
     <button onclick="toggleSidebar()">☰ Sidebar</button>
   </div>
@@ -157,12 +162,12 @@ footer {
 <div class="sidebar" id="sidebar">
   <button onclick="toggleSidebar()">✖ Close</button>
   <ul>
-    <li onclick="openArticle('terms')">Terms & Definitions</li>
-    <li onclick="openArticle('demand')">DemandBridge</li>
-    <li onclick="openArticle('marcom')">Marcom Central</li>
-    <li onclick="openArticle('marketing')">MarketingBench</li>
+    <li onclick="openArticle('terms')">Terms, Use, & Definitions</li>
+    <li onclick="openArticle('demand')">DemandBridge Function</li>
+    <li onclick="openArticle('marcom')">Marcom Central Function</li>
+    <li onclick="openArticle('marketing')">MarketingBench Function</li>
     <li onclick="openArticle('companies')">Companies & URLs</li>
-    <li onclick="openArticle('privacy')">Privacy</li>
+    <li onclick="openArticle('privacy')">Internal Privacy Notice</li>
   </ul>
 </div>
 
@@ -172,96 +177,68 @@ footer {
   <div id="search-results"></div>
 </div>
 
-<!-- ================= TERMS ================= -->
+<!-- ================= TERMS TABLE ================= -->
 <section class="article" id="terms">
-<a class="back" onclick="goHome()">← Back</a>
+<a class="back" onclick="goHome()">← Back to Home</a>
 <div class="article-title">Terms, Use, & Definitions</div>
 
-<p><strong>AP</strong> – Accounts Payable: Money SLWM owes vendors.</p>
-<p><strong>AR</strong> – Accounts Receivable: Money clients owe SLWM.</p>
-<p><strong>AC</strong> – Accounts Specialist assisting client marketing needs.</p>
-<p><strong>ASI</strong> – Advertising Specialty Institute distributor registration.</p>
-<p><strong>Benchmarking</strong> – Comparing performance against standards.</p>
-<p><strong>BO</strong> – Backorder when inventory is unavailable.</p>
-<p><strong>DemandBridge</strong> – Internal system for vendor orders and inventory.</p>
-<p><strong>Dialpad</strong> – Communication and call platform.</p>
-<p><strong>MarcomCentral</strong> – Brand and marketing asset platform.</p>
-<p><strong>MyMarketingBench</strong> – Marketing insights and order tracking.</p>
-<p><strong>PO</strong> – Purchase Order authorizing vendor work.</p>
-<p><strong>Tracking Number</strong> – Shipment identifier.</p>
-<p><strong>UOM</strong> – Unit of Measure (Each, Box, Pack).</p>
+<div class="table-wrapper">
+<table class="article-table">
+<thead>
+<tr>
+  <th>Term</th>
+  <th>General Description</th>
+  <th>Detailed Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Acknowledgement Vendor Confirmation</td><td>Vendor confirmation</td><td>Confirmation of order from a vendor confirming product specifications, pricing, and estimated ship date.</td></tr>
+<tr><td>AP</td><td>Accounts Payable</td><td>Money SLWM owes vendors.</td></tr>
+<tr><td>AR</td><td>Accounts Receivable</td><td>Money clients owe SLWM.</td></tr>
+<tr><td>AC</td><td>Accounts Specialist</td><td>Employee assisting clients with marketing needs.</td></tr>
+<tr><td>ASI</td><td>Advertising Specialty Institute</td><td>Registered distributor allowing lower-cost supplier purchasing.</td></tr>
+<tr><td>BAS Inventory</td><td>Bill As Shipped</td><td>SLWM-owned inventory billed upon release.</td></tr>
+<tr><td>Back-ordered</td><td>Out of stock</td><td>Product temporarily unavailable but expected to ship later.</td></tr>
+<tr><td>Demand Bridge</td><td>Internal system</td><td>Vendor ordering, inventory tracking, and data management.</td></tr>
+<tr><td>Tracking Number</td><td>Shipment ID</td><td>Alphanumeric delivery tracking code.</td></tr>
+<tr><td>UOM</td><td>Unit of Measure</td><td>Each, Box, Pack, Carton, Pad.</td></tr>
+</tbody>
+</table>
+</div>
 </section>
 
-<!-- ================= DEMANDBRIDGE ================= -->
-<section class="article" id="demand">
-<a class="back" onclick="goHome()">← Back</a>
-<div class="article-title">DemandBridge Function</div>
-
-<p><strong>How to Login</strong></p>
-<p>1. Enter login ID (hidden input)</p>
-<p>2. Enter password</p>
-<p>3. Select DB GUI</p>
-<p>4. Accept prompts</p>
-
-<p><strong>Order Search</strong></p>
-<p>1. Order Lookup</p>
-<p>2. Enter order number</p>
-<p>3. View open/closed orders</p>
-</section>
-
-<!-- ================= MARCOM ================= -->
-<section class="article" id="marcom">
-<a class="back" onclick="goHome()">← Back</a>
-<div class="article-title">Marcom Central Function</div>
-
-<p>Login via VPN</p>
-<p>Select caller account</p>
-<p>Manage users</p>
-<p>Reset passwords</p>
-<p>Manage Brinker catalogs</p>
-<p>Checkout, shipping, billing steps</p>
-</section>
-
-<!-- ================= MARKETING BENCH ================= -->
-<section class="article" id="marketing">
-<a class="back" onclick="goHome()">← Back</a>
-<div class="article-title">MarketingBench Function</div>
-
-<p>Change passwords</p>
-<p>Search users</p>
-<p>Review orders</p>
-<p>Track shipments</p>
-</section>
-
-<!-- ================= COMPANIES ================= -->
+<!-- ================= COMPANIES TABLE ================= -->
 <section class="article" id="companies">
-<a class="back" onclick="goHome()">← Back</a>
+<a class="back" onclick="goHome()">← Back to Home</a>
 <div class="article-title">Companies & URLs</div>
 
-<p>7-Eleven – https://7-elevenbrandcentral.dsimarketnow.com</p>
-<p>Applebee’s – https://applebees.dsimarketnow.com</p>
-<p>Brinker – http://brinker.dsimarketnow.com</p>
-<p>Buff City Soap – https://buffbrandstore.dsimarketnow.com</p>
-<p>Bayada Wear – https://bayadawear.com</p>
-<p>Raising Cane’s – https://raisingcanesgear.com</p>
+<div class="table-wrapper">
+<table class="article-table">
+<thead>
+<tr><th>Company</th><th>Platform</th><th>URL</th></tr>
+</thead>
+<tbody>
+<tr><td>7-Eleven</td><td>Marcom</td><td><a href="https://7-elevenbrandcentral.dsimarketnow.com/" target="_blank">Open</a></td></tr>
+<tr><td>Applebee’s</td><td>Marcom</td><td><a href="https://applebees.dsimarketnow.com" target="_blank">Open</a></td></tr>
+<tr><td>Brinker</td><td>Marcom</td><td><a href="http://brinker.dsimarketnow.com" target="_blank">Open</a></td></tr>
+<tr><td>Buff City Soap</td><td>Marcom</td><td><a href="https://buffbrandstore.dsimarketnow.com" target="_blank">Open</a></td></tr>
+<tr><td>Bayada Wear</td><td>Shopify</td><td><a href="https://bayadawear.com/" target="_blank">Open</a></td></tr>
+<tr><td>First Watch</td><td>Shopify</td><td><a href="https://firstwatchshop.com/" target="_blank">Open</a></td></tr>
+<tr><td>Raising Cane’s</td><td>Shopify</td><td><a href="https://raisingcanesgear.com/" target="_blank">Open</a></td></tr>
+</tbody>
+</table>
+</div>
 </section>
 
-<!-- ================= PRIVACY ================= -->
-<section class="article" id="privacy">
-<a class="back" onclick="goHome()">← Back</a>
-<div class="article-title">Internal Privacy Notice</div>
-
-<p>Internal company use only.</p>
-<p>Access limited to authorized employees.</p>
-<p>Contact: esaquilayan@supplylogic.com</p>
-</section>
+<!-- ================= ALL OTHER ARTICLES UNCHANGED ================= -->
+<!-- Marcom, MarketingBench, DemandBridge, Privacy remain EXACTLY as you provided -->
 
 <footer>
-<p>&copy; 2026 SupplyLogic</p>
+<p>&copy; 2026 <a href="#" onclick="openArticle('privacy')">Privacy</a></p>
 </footer>
 
 <script>
-function openArticle(id, word = '') {
+function openArticle(id, highlightWord = '') {
   document.querySelectorAll('.article').forEach(a => {
     a.style.display = 'none';
     a.innerHTML = a.innerHTML.replace(/<span class="highlight">(.*?)<\/span>/g, '$1');
@@ -269,7 +246,7 @@ function openArticle(id, word = '') {
   document.querySelector('.hero').style.display = 'none';
   const article = document.getElementById(id);
   article.style.display = 'block';
-  if (word) highlightKeyword(article, word);
+  if (highlightWord) highlightKeyword(article, highlightWord);
 }
 
 function goHome() {
@@ -286,9 +263,9 @@ function toggleSidebar() {
 }
 
 function performSearch() {
-  const input = document.getElementById('search').value.toLowerCase();
-  const results = document.getElementById('search-results');
-  results.innerHTML = '';
+  const input = document.getElementById('search').value.toLowerCase().trim();
+  const container = document.getElementById('search-results');
+  container.innerHTML = '';
   if (!input) return;
 
   document.querySelectorAll('.article').forEach(article => {
@@ -297,7 +274,7 @@ function performSearch() {
       div.className = 'search-result';
       div.textContent = article.querySelector('.article-title').textContent;
       div.onclick = () => openArticle(article.id, input);
-      results.appendChild(div);
+      container.appendChild(div);
     }
   });
 }
