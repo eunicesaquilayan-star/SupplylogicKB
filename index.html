@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Knowledge Base Tool</title>
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Aptos:wght@400;700&display=swap');
 
@@ -14,6 +15,7 @@ body {
   color: #000;
 }
 
+/* HEADER */
 header {
   display: flex;
   align-items: center;
@@ -35,6 +37,7 @@ header button {
   cursor: pointer;
 }
 
+/* HERO */
 .hero {
   display: flex;
   flex-direction: column;
@@ -46,16 +49,16 @@ header button {
   text-align: center;
 }
 
-.hero input[type="text"] {
+.hero input {
   padding: 12px;
   width: 50%;
   max-width: 500px;
   border-radius: 5px;
   border: none;
-  margin-bottom: 10px;
   font-size: 16px;
 }
 
+/* SEARCH RESULTS */
 #search-results {
   margin-top: 10px;
   width: 50%;
@@ -76,6 +79,7 @@ header button {
   background: #ddd;
 }
 
+/* SIDEBAR */
 .sidebar {
   position: fixed;
   top: 70px;
@@ -92,15 +96,7 @@ header button {
   right: 0;
 }
 
-.sidebar button {
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
+/* ARTICLES */
 .article {
   display: none;
   padding: 20px;
@@ -116,68 +112,70 @@ header button {
   margin-bottom: 15px;
 }
 
-.article p {
-  font-size: 15px;
-  margin-bottom: 10px;
-}
-
-.article img {
-  display: block;
-  margin: 10px 0;
-  min-width: 300px;
-  max-width: 700px;
-  min-height: 100px;
-  max-height: 450px;
-}
-
 .back {
-  display: inline-block;
-  margin-bottom: 15px;
   cursor: pointer;
+  font-weight: bold;
   color: #24194F;
+}
+
+/* TABLES (NEW) */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.article-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.article-table th,
+.article-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  vertical-align: top;
+  font-size: 14px;
+}
+
+.article-table th {
+  background: #24194F;
+  color: white;
+}
+
+.article-table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+/* HIGHLIGHT */
+.highlight {
+  background-color: yellow;
   font-weight: bold;
 }
 
+/* FOOTER */
 footer {
   background: #24194F;
   color: white;
   text-align: center;
   padding: 15px;
-  margin-top: 30px;
-}
-
-footer a {
-  color: white;
-  text-decoration: underline;
-}
-
-
-.highlight {
-  background-color: yellow;
-  font-weight: bold;
 }
 </style>
 </head>
+
 <body>
 
 <header>
-  <img src="images/Supply-logic.png" alt="Supply logic">
+  <img src="images/Supply-logic.png" alt="Supply Logic">
   <div>
-    <button onclick="toggleDarkMode()">Dark Mode</button>
     <button onclick="toggleSidebar()">☰ Sidebar</button>
   </div>
 </header>
 
 <div class="sidebar" id="sidebar">
   <button onclick="toggleSidebar()">✖ Close</button>
-  <p>Articles:</p>
   <ul>
     <li onclick="openArticle('terms')">Terms, Use, & Definitions</li>
-    <li onclick="openArticle('demand')">DemandBridge Function</li>
-    <li onclick="openArticle('marcom')">Marcom Central Function</li>
-    <li onclick="openArticle('marketing')">MarketingBench Function</li>
     <li onclick="openArticle('companies')">Companies & URLs</li>
-    <li onclick="openArticle('privacy')">Internal Privacy Notice</li>
   </ul>
 </div>
 
@@ -187,314 +185,111 @@ footer a {
   <div id="search-results"></div>
 </div>
 
-<!-- ARTICLES -->
+<!-- TERMS -->
 <section class="article" id="terms">
-<a class="back" onclick="goHome()">← Back to Home</a>
-<div class="article-title">Terms, Use, & Definitions</div>
-<p>● <strong>Supply Logic</strong> — From sourcing to fulfillment, SupplyLogic applies the same people, processes, and technology to simplify execution for multi-location brands. As an extension of your team, we create competitive tension in sourcing, deliver precision in fulfillment, and give you full visibility into spend — so your brand shows up flawlessly, everywhere it matters.</p>
-<p>● <strong>Back-ordered</strong> - Product that's temporarily out of stock but still available for purchase, meaning the seller has already ordered more from the supplier or manufacturer and expects to fulfill the order later...</p>
-<p>● <strong>Demand Bridge</strong> — Is a tool where order related information are being stored.</p>
-<p>● <strong>Dialpad</strong> — Our primary calling and communication platform. Dialpad is a modern, AI-powered voice and contact center system that lets you take inbound customer calls, access relevant call features, and view customer details while you talk...</p>
-<p>● <strong>Shopify</strong> — When available, you can view customer profile information and recent orders directly on your screen during calls...</p>
-<p>● <strong>MyMarketingBench</strong> — A central platform used by our team to access marketing insights and assets that may support customer discussions...</p>
-<p>● <strong>MarcomCentral</strong> — A brand management and distributed marketing platform where clients may store and manage official marketing materials...</p>
-<p>● <strong>Net terms</strong> – Net terms on an invoice define the payment deadline...</p>
-<p>● <strong>Pending Status</strong> – An order was placed but not yet shipped...</p>
-<p>● <strong>Purchase Order (PO)</strong> — A Purchase Order is an official document issued by a company authorizing a vendor...</p>
-<p>● <strong>Credit Card</strong> — An electronic payment method that allows immediate payment using a bank-issued card...</p>
-<p>● <strong>Check</strong> — A written payment instruction from a bank account holder...</p>
-<p>● <strong>User Budget</strong> — A pre-approved spending limit assigned to a user or department...</p>
-<p>● <strong>Impersonate</strong> – Access a customer's account to place an order on their behalf if requested.</p>
-<p>● <strong>Call Drivers</strong> — Account access / inquiries, Order placing, Order status & Tracking order...</p>
-<p>● <strong>Tracking number</strong> – An alpha numeric number to check the status of the delivery of an order.</p>
+  <a class="back" onclick="goHome()">← Back to Home</a>
+  <div class="article-title">Terms, Use, & Definitions</div>
+
+  <div class="table-wrapper">
+    <table class="article-table">
+      <thead>
+        <tr>
+          <th>Term</th>
+          <th>General Description</th>
+          <th>Detailed Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>AP</td>
+          <td>Accounts Payable</td>
+          <td>Money SLWM owes to vendors.</td>
+        </tr>
+        <tr>
+          <td>AR</td>
+          <td>Accounts Receivable</td>
+          <td>Money clients owe SLWM.</td>
+        </tr>
+        <tr>
+          <td>Back-Ordered</td>
+          <td>Out of stock</td>
+          <td>Item unavailable but expected to be fulfilled later.</td>
+        </tr>
+        <tr>
+          <td>Tracking Number</td>
+          <td>Shipment reference</td>
+          <td>Used to track delivery status.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
-<section class="article" id="marcom">
-<a class="back" onclick="goHome()">← Back to Home</a>
-<div class="article-title">Marcom Central Function</div>
-<p><strong>ACCOUNT ACCESS</strong></p>
-<p>1. Login to the MarcomPortal using your credentials. Website: <a href="https://admin.marcomcentral.app.pti.com/" target="_blank">https://admin.marcomcentral.app.pti.com/</a></p>
-<p>2. Click the FusionPro Central logo to ensure you are at the home screen screen to make sure you are at the home screen of the portal.</p>
-<img src="images/Marcom-1.png" alt="Marcom 1">
-<p> By using this portal, you can access the list of customers that we have listed on the portal. Remember that you can only access the portal by using VPN.</p>
-<p><strong>Changing to the Caller’s Account</strong></p>
-<p>1. Make sure you are at the <strong>HOME SCREEN</strong>. Click the dropdown to choose the caller’s account.</p>
-<p>2. Click the dropdown button on this part of the screen to choose the account of the caller.</p>
-<img src="images/Marcom-2.png" alt="Marcom 2">
-<p>It will show you the list of the accounts and URLs   of customers that we have on our portal like the image below.</p>
-<img src="images/Marcom-3.png" alt="Marcom 3">
-<p>3. Choose the account of the caller to start accessing their account. (e.g. Buff City Soap)</p>
-<img src="images/Marcom-4.png" alt="Marcom 4">
-<p>4. Click on PORTAL USERS. </p>
-<img src="images/Marcom-5.png" alt="Marcom 5">
-<p>5. Select USERS to see the users under the Customer’s account.</p>
-<img src="images/Marcom-6.png" alt="Marcom 6">
-<p>After clicking the USERS, this will take you to the image below. 
-Please take note that “YOU WILL ONLY ACCESS THIS AREA.”. You will not access any other page inside the Portal.</p>
-<img src="images/Marcom-7.png" alt="Marcom 7">
-<p> On this part of the portal, you can search the users by User’s Name, external ID, and user ID. The User’s name format is First Name Last Name. 
-You can also search them by a part of their name in case the user only provided it. An example image is seen below.</p>
-<p> Changing User Account Details. (Changing Password)</strong></p>
-<p>1. Search the account of the user by their provided details. (e.g. Burke.)</p>
-<p>2. Double Click on the name of the correct account of the user. (Remember not to click the Login Button, but on the name of the User’s Account)</p>
-<img src="images/Marcom-8.png" alt="Marcom 8">
-<p>3. It will take you to this screen. .</p>
-<img src="images/Marcom-9.png" alt="Marcom 9">
-<p>4. Click <strong>EDIT</strong> on the top right to make changes.</p>
-<img src="images/Marcom-10.png" alt="Marcom 10">
-<p>Click <strong>EDIT</strong> on the top right to make changes.</p>
-<img src="images/Marcom-11.png" alt="Marcom 11">
-<p>5. Change the password of the user on Password Text Box. Make sure to put the same Password on the Confirm Password Text Box.</p>
-<p>6. Inform the caller about the password change and they need to change the password to their preferred password onc0e they are able to login back to their account.</p>
-<p>7. Click the save button on the top right of the screen.
-<img src="images/Marcom-12.png" alt="Marcom 12">
-<p>Change the password and confirm in the Confirm Password box. Click save.</p>
-<img src="images/Marcom-13.png" alt="Marcom 13">
-<p><strong>Marcom Central Brinker Function</strong></p>
-<p>You can manage our store using this platform. You will have your own login credentials for this tool.</p>
-<img src="images/Brinker-1.png" alt="Brinker 1">
-<img src="images/Brinker-2.png" alt="Brinker 2">
-<p> Key note: Brinker International is Chili’s and Maggiano’s partners so you need to ask if they are Chili’s or Maggiano’s because they both cater to different accounts. 
-In this platform, you can search the item on the search bar if you can’t remember which catalog it is in. 
-Below is the sample of the catalog that we have on the platform:</p>
-<img src="images/Brinker-3.png" alt="Brinker 3">
-<p>To access Chili’s catalog, you can hover your mouse cursor on the CHILI’S to view more.</p>
-<img src="images/Brinker-4.png" alt="Brinker 4">
-<p><strong>ORDER TAKING PRODUCT CATALOG:</strong></p>
-<p>In this example, we can search an item using the search box on the top right of the screen. 
-ou can input keywords and it will show you suggestions of the item that you are looking for on the platform. 
-Below is an example search that we had.</p>
-<img src="images/Brinker-5.png" alt="Brinker 5">
-<p>We are looking for the Validation Binder in this example. 
-Click on the product that you are looking for to see more details about the said product.</p>
-<img src="images/Brinker-6.png" alt="Brinker 6">
-<p><strong>CUSTOMIZED PRODUCTS</strong></p>
-<p>We have products that are custom made like business cards. You can search it using the search box above. 
-Below is an example on how it will look like.</p>
-<img src="images/Brinker-7.png" alt="Brinker 7">
-<p>They need to fill up the details of the item first. 
-Once we are able to fill in the details for the item. 
-Click PREVIEW before you check out. You can’t proceed if you will not click PREVIEW.</p>
-<p><strong>ORDER CHECKOUT</strong></p>
-<p>Once you are done with the items you want to add in your cart. Click CART on the top menu to view all of your items.</p>
-<img src="images/Brinker-8.png" alt="Brinker 8">
-<p>This will take you to this screen.</p>
-<img src="images/Brinker-9.png" alt="Brinker 9">
-<p>You can also remove items on your cart by clicking the TRASH BIN icon before the Product name.</p>
-<img src="images/Brinker-10.png" alt="Brinker 10">
-<p>Once you are done reviewing the items, you can click on the CHECKOUT on the bottom right part of the screen.</p>
-<p><strong>SHIPPING</strong></p>
-<p>Once you click the CHECKOUT button, it will take you to the shipping details screen where you need to input all the shipping details. </p>
-<img src="images/Brinker-11.png" alt="Brinker 11">
-<p>Our customer’s store addresses are mostly saved in their accounts. It will auto populate on the EXISTING ADDRESS. If they want to send it to a different address, you need to input it on the USE A NEW ADDRESS (THIS ORDER ONLY).</p>
-<p>Choose the SHIPPING METHOD on the bottom left part of the screen.</p>
-<img src="images/Brinker-12.png" alt="Brinker 12">
-<p>Choose the right shipping method according to the preference of the customer then click CONTINUE on the bottom part of the screen.</p>
-<p><strong>BILLING</strong></p>
-<p>On this page, you need to put the BILLING DETAILS of the customer.  Most of the customer’s billing information is already added to our system.</p> 
-<p>The process is almost identical to the SHIPPING. However, we need to choose the PAYMENT METHOD according to the customer’s preference.</p>
-<img src="images/Brinker-13.png" alt="Brinker 13">
-<p>Once all of the information is provided, click on CONTINUE to finalize reviewing the order. It will take you to this screen.</p>
-<img src="images/Brinker-14.png" alt="Brinker 14">
-<p>Always remember to review the items with the customer and their preferred payment method, billing address and the total amount that will be charged before completing the order.</p>
-</section>
-
-<section class="article" id="marketing">
-<a class="back" onclick="goHome()">← Back to Home</a>
-<div class="article-title">MarketingBench Function</div>
-<p><strong>Changing Password on MYMARKETBENCH</strong> (Legacy: DBE)</p>
-<p>1.	Use the customer’s URL and log in to your account on MyMarketingBench using your login credentials.</p>
-<img src="images/MarketingBench-1.png" alt="MarketingBench 1">
-<p>2.	 Once logged in. It will take you to this screen.</p>
-<img src="images/MarketingBench-2.png" alt="MarketingBench 2">
-<p>3.	Click on the WORK WITH USERS on the left side pane.</p>
-<img src="images/MarketingBench-3.png" alt="MarketingBench 3">
-<p>4.	Search the name, User ID, First Name or Last name of the caller. (e.g. Pattison)</p>
-<img src="images/MarketingBench-4.png" alt="MarketingBench 4">
-<p>5.	Select the right account then click EDIT on the right side of the screen to start making changes.</p>
-<img src="images/MarketingBench-5.png" alt="MarketingBench 5">
-<p>6.	Put a temporary password. Make sure to put the same Password on the Confirm Password Text Box.</p>
-<img src="images/MarketingBench-6.png" alt="MarketingBench 6">
-<p>Inform the caller about the password change and they need to change it once they are able to login back to their account.</p>
-<p><strong>ORDER INQUIRIES</strong></p>
-<p>This will tackle how to navigate orders on mymarketbench(DBE).</p>
-  <p>1.	Open the client’s business portal with their corresponding URLs and credentials.</p>
-  <p>1.	Once you are logged in, click HOME on the top menu. </p>
-<img src="images/MarketingBench-7.png" alt="MarketingBench 7">
-<p>2.	Click on my MY ORDERS to see the orders inside the client’s portal.</p>
-<img src="images/MarketingBench-8.png" alt="MarketingBench 8">
-<p>3.	Search for the order of the customer by their order #, or filter the date when it was placed. You can filter the list on this part of the screen.</p>
-<img src="images/MarketingBench-9.png" alt="MarketingBench 9">
-<p>4.	Once you found the order, click on the ORDER # on the first column to get more information about the said order. </p>
-<img src="images/MarketingBench-10.png" alt="MarketingBench 10">
-<p>Your screen will show something similar to the image below. You can click the tracking number below to take you to more detailed information of the shipment of their order.</p>
-<img src="images/MarketingBench-11.png" alt="MarketingBench 11">
-</section>
-
-<section class="article" id="demand">
-<a class="back" onclick="goHome()">← Back to Home</a>
-<div class="article-title">DemandBridge Function</div>
-<p><strong>HOW TO LOG IN</strong></p>
-<p>1.	Once the log in page load type your log in ID and hit enter *note if you type anyting it's not visible on your end but system capture.</p>
-<img src="images/DBE-1.png" alt="DBE 1">
-<p>2.	 If ID is correct, the option to put your password will show, again it's not visible when you type just hit enter.</p>
-<img src="images/DBE-2.png" alt="DBE 2">
-<p>3.	Once log in successfully wait for the next prompt and choose number 2 (DB GUI).</p>
-<img src="images/DBE-3.png" alt="DBE 3">
-<p>4.	Wait for the prompt and then click accept</p>
-<img src="images/DBE-4.png" alt="DBE 4">
-<p>5.	Another prompt will show, please click continue.</p>
-<img src="images/DBE-5.png" alt="DBE 5">
-<p>6.	Folders will show, please double click DB Distributor.</p>
-<img src="images/DBE-6.png" alt="DBE 6">
-<p>7. Then under Distributor click Accounts Receivable.</p>
-<img src="images/DBE-7.png" alt="DBE 7">
-<p>8. Then choose setp up.</p>
-<img src="images/DBE-8.png" alt="DBE 8">
-<p>9.	Then Customer folder. </p>
-<img src="images/DBE-9.png" alt="DBE 9">
-<p><strong>HOW TO SEARCH ORDER</strong></p>
-<p>1.	Click ORDER LOOK UP tab</p>
-<img src="images/DBE-10.png" alt="DBE 10">
-<p>2. Type the order number, then click Order history by item.</p>
-<img src="images/DBE-11.png" alt="DBE 11">
-<p>3. Once this prompt show click proceed.</p>
-<img src="images/DBE-12.png" alt="DBE 12">
-<p>4. This screen will show close and open orders, Orders that are highlighted in green are still open. Double click the order number</p>
-<img src="images/DBE-13.png" alt="DBE 13">
-<p>5. Then it will route you to the order details </p>
-<img src="images/DBE-14.png" alt="DBE 14">
-</section>
-  
+<!-- COMPANIES -->
 <section class="article" id="companies">
   <a class="back" onclick="goHome()">← Back to Home</a>
   <div class="article-title">Companies & URLs</div>
 
-  <p><strong>Marcom Central</strong></p>
-  <p>7-Eleven - https://7-elevenbrandcentral.dsimarketnow.com/</p>
-  <p>American Airlines Credit Union - aafcu.dsimarketnow.com</p>
-  <p>Applebee's - https://applebees.dsimarketnow.com</p>
-  <p>Brinker - http://brinker.dsimarketnow.com</p>
-  <p>Buff City Soap - https://buffbrandstore.dsimarketnow.com</p>
-  <p>Cash America - http://cashamerica.dsimarketnow.com</p>
-  <p>Choice Hotels - https://choicehotels.dsimarketnow.com</p>
-  <p>Dave & Buster's / Main Event - daveandbusters.dsimarketnow.com</p>
-
-  <p><strong>Other Stores</strong></p>
-  <p>Bayada Wear - https://bayadawear.com/</p>
-  <p>First Watch Shop - https://firstwatchshop.com/</p>
-  <p>Raising Cane's Gear - https://raisingcanesgear.com/</p>
-
-  <p>
-    <a href="https://docs.google.com/spreadsheets/d/1oh4_y0JDSTbJ108A3s4hJdSo-k8OLCJX/edit" target="_blank">
-      View Spreadsheet
-    </a>
-  </p>
-</section>
-
-
-<section class="article" id="privacy">
-<a class="back" onclick="goHome()">← Back to Home</a>
-<div class="article-title">Internal Privacy Notice</div>
-<p>Last updated: January 20, 2026</p>
-<p>This knowledge tool is for internal company use only.</p>
-<p><strong>Information in the System</strong></p>
-<ul>
-<li>Tools and terms</li>
-<li>Internal documents and knowledge content</li>
-<li>Basic system usage logs (e.g., access times)</li>
-</ul>
-<p>Only work-related information should be stored.</p>
-<p><strong>How Information Is Used</strong></p>
-<ul>
-<li>Share and manage internal knowledge</li>
-<li>Support business operations</li>
-<li>Maintain system security and reliability</li>
-</ul>
-<p>Access and security limited to authorized employees...</p>
-<p>Questions? Contact: esaquilayan@supplylogic.com</p>
+  <div class="table-wrapper">
+    <table class="article-table">
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>URL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>7-Eleven</td>
+          <td><a href="https://7-elevenbrandcentral.dsimarketnow.com/" target="_blank">Visit</a></td>
+        </tr>
+        <tr>
+          <td>Applebee’s</td>
+          <td><a href="https://applebees.dsimarketnow.com" target="_blank">Visit</a></td>
+        </tr>
+        <tr>
+          <td>Buff City Soap</td>
+          <td><a href="https://buffbrandstore.dsimarketnow.com" target="_blank">Visit</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
 <footer>
-<p>&copy; 2026 <a href="#" onclick="openArticle('privacy')">Privacy</a></p>
+  <p>&copy; 2026 SupplyLogic</p>
 </footer>
 
 <script>
 function openArticle(id, highlightWord = '') {
-  document.querySelectorAll('.article').forEach(a => {
-    a.style.display = 'none';
-    a.innerHTML = a.innerHTML.replace(/<span class="highlight">(.*?)<\/span>/g, '$1');
-  });
-
+  document.querySelectorAll('.article').forEach(a => a.style.display = 'none');
   document.querySelector('.hero').style.display = 'none';
-  const article = document.getElementById(id);
-  article.style.display = 'block';
-
-  if (highlightWord) highlightKeyword(article, highlightWord);
+  document.getElementById(id).style.display = 'block';
 }
 
 function goHome() {
-  document.querySelectorAll('.article').forEach(a => {
-    a.style.display = 'none';
-    a.innerHTML = a.innerHTML.replace(/<span class="highlight">(.*?)<\/span>/g, '$1');
-  });
+  document.querySelectorAll('.article').forEach(a => a.style.display = 'none');
   document.querySelector('.hero').style.display = 'flex';
-  document.getElementById('search-results').innerHTML = '';
 }
 
 function toggleSidebar() {
   document.getElementById('sidebar').classList.toggle('open');
 }
 
-/* 🔍 FULL CONTENT SEARCH */
 function performSearch() {
-  const input = document.getElementById('search').value.toLowerCase().trim();
-  const container = document.getElementById('search-results');
-  container.innerHTML = '';
+  const input = document.getElementById('search').value.toLowerCase();
+  const results = document.getElementById('search-results');
+  results.innerHTML = '';
 
   if (!input) return;
 
   document.querySelectorAll('.article').forEach(article => {
-    const id = article.id;
-    const title = article.querySelector('.article-title')?.textContent || '';
-    const content = article.textContent || '';
-
-    if (
-      title.toLowerCase().includes(input) ||
-      content.toLowerCase().includes(input)
-    ) {
+    if (article.textContent.toLowerCase().includes(input)) {
       const div = document.createElement('div');
       div.className = 'search-result';
-      div.textContent = title || id;
-      div.onclick = () => openArticle(id, input);
-      container.appendChild(div);
-    }
-  });
-}
-
-/* 🟨 SAFE HIGHLIGHT */
-function highlightKeyword(article, word) {
-  if (!word) return;
-
-  const walker = document.createTreeWalker(
-    article,
-    NodeFilter.SHOW_TEXT,
-    null,
-    false
-  );
-
-  const regex = new RegExp(`(${word})`, 'gi');
-  const nodes = [];
-
-  while (walker.nextNode()) {
-    nodes.push(walker.currentNode);
-  }
-
-  nodes.forEach(node => {
-    if (regex.test(node.nodeValue)) {
-      const span = document.createElement('span');
-      span.innerHTML = node.nodeValue.replace(regex, '<span class="highlight">$1</span>');
-      node.parentNode.replaceChild(span, node);
+      div.textContent = article.querySelector('.article-title').textContent;
+      div.onclick = () => openArticle(article.id);
+      results.appendChild(div);
     }
   });
 }
@@ -502,7 +297,3 @@ function highlightKeyword(article, word) {
 
 </body>
 </html>
-
-
-
-
