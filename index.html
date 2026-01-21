@@ -136,6 +136,31 @@ header button {
   cursor: pointer;
   color: #24194F;
   font-weight: bold;
+
+  .terms-columns {
+    column-count: 3;
+    column-gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+  }
+
+  .terms-columns li {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 900px) {
+    .terms-columns {
+      column-count: 2;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .terms-columns {
+      column-count: 1;
+
 }
 
 footer {
@@ -189,24 +214,319 @@ footer a {
 
 <!-- ARTICLES -->
 <section class="article" id="terms">
-<a class="back" onclick="goHome()">← Back to Home</a>
-<div class="article-title">Terms, Use, & Definitions</div>
-<p>● <strong>Supply Logic</strong> — From sourcing to fulfillment, SupplyLogic applies the same people, processes, and technology to simplify execution for multi-location brands. As an extension of your team, we create competitive tension in sourcing, deliver precision in fulfillment, and give you full visibility into spend — so your brand shows up flawlessly, everywhere it matters.</p>
-<p>● <strong>Back-ordered</strong> - Product that's temporarily out of stock but still available for purchase, meaning the seller has already ordered more from the supplier or manufacturer and expects to fulfill the order later...</p>
-<p>● <strong>Demand Bridge</strong> — Is a tool where order related information are being stored.</p>
-<p>● <strong>Dialpad</strong> — Our primary calling and communication platform. Dialpad is a modern, AI-powered voice and contact center system that lets you take inbound customer calls, access relevant call features, and view customer details while you talk...</p>
-<p>● <strong>Shopify</strong> — When available, you can view customer profile information and recent orders directly on your screen during calls...</p>
-<p>● <strong>MyMarketingBench</strong> — A central platform used by our team to access marketing insights and assets that may support customer discussions...</p>
-<p>● <strong>MarcomCentral</strong> — A brand management and distributed marketing platform where clients may store and manage official marketing materials...</p>
-<p>● <strong>Net terms</strong> – Net terms on an invoice define the payment deadline...</p>
-<p>● <strong>Pending Status</strong> – An order was placed but not yet shipped...</p>
-<p>● <strong>Purchase Order (PO)</strong> — A Purchase Order is an official document issued by a company authorizing a vendor...</p>
-<p>● <strong>Credit Card</strong> — An electronic payment method that allows immediate payment using a bank-issued card...</p>
-<p>● <strong>Check</strong> — A written payment instruction from a bank account holder...</p>
-<p>● <strong>User Budget</strong> — A pre-approved spending limit assigned to a user or department...</p>
-<p>● <strong>Impersonate</strong> – Access a customer's account to place an order on their behalf if requested.</p>
-<p>● <strong>Call Drivers</strong> — Account access / inquiries, Order placing, Order status & Tracking order...</p>
-<p>● <strong>Tracking number</strong> – An alpha numeric number to check the status of the delivery of an order.</p>
+  <a class="back" onclick="goHome()">← Back to Home</a>
+  <div class="article-title">Terms, Use, & Definitions</div>
+
+  <ul id="termsList" class="terms-columns">
+
+    <li data-term="Acknowledgement">
+      <strong>Acknowledgement / Vendor Confirmation / Order Acknowledgement</strong><br>
+      Confirmation of order from a vendor confirming product specifications, pricing, and estimated ship date.
+      The AS must look for discrepancies between the confirmation and the SLWM PO.
+    </li>
+
+    <li data-term="Accounts Payable">
+      <strong>AP – Accounts Payable</strong><br>
+      Accounting term describing money SLWM owes, usually to a vendor.
+    </li>
+
+    <li data-term="Accounts Receivable">
+      <strong>AR – Accounts Receivable / Collections</strong><br>
+      Accounting term describing money clients owe SLWM.
+    </li>
+
+    <li data-term="Account Specialist">
+      <strong>AS – Account Specialist</strong><br>
+      Employee that assists clients with marketing needs.<br>
+      <em>Old Titles:</em> MAS, CSS, CSR
+    </li>
+
+    <li data-term="Advertising Specialty Institute">
+      <strong>ASI – Advertising Specialty Institute</strong><br>
+      Largest member organization for the promotional products industry.
+      SLWM is registered as an ASI distributor.
+    </li>
+
+    <li data-term="Barracuda">
+      <strong>Barracuda</strong><br>
+      Spam filter and email archiver found on the SLWM Toolbox.
+    </li>
+
+    <li data-term="Backorder">
+      <strong>BO / B/O – Backorder</strong><br>
+      Occurs when a client orders an item that is out of stock in SLWM’s warehouse.
+    </li>
+
+    <li data-term="Benchmarking">
+      <strong>Benchmarking</strong><br>
+      Evaluating performance by comparison with a standard.
+    </li>
+
+    <li data-term="Bill As Shipped">
+      <strong>BAS – Bill As Shipped (SLWM Owned Inventory)</strong><br>
+      Inventory stored for a customer that has not yet been paid for.
+      Items are billed as released.
+    </li>
+
+    <li data-term="Brand Manager">
+      <strong>BM – Brand Manager (SupplyLogic)</strong>
+    </li>
+
+    <li data-term="Client">
+      <strong>Client</strong><br>
+      Businesses SLWM provides marketing services for.
+      Clients are relationship-driven; customers are transaction-driven.
+    </li>
+
+    <li data-term="Client Dashboard">
+      <strong>Client Dashboard</strong><br>
+      Includes Order Search, Finance, Toolkit, Sourcing, and Reporting.
+    </li>
+
+    <li data-term="Concur">
+      <strong>Concur</strong><br>
+      Expense, travel, and invoice management system.
+      Vendor discrepancies are reviewed here.
+    </li>
+
+    <li data-term="Connect">
+      <strong>Connect</strong><br>
+      SLWM’s asset management system for housing art files.
+    </li>
+
+    <li data-term="Cost">
+      <strong>Cost</strong><br>
+      What SLWM pays vendors before selling to clients.
+    </li>
+
+    <li data-term="Customer Owned Inventory">
+      <strong>Customer Owned Inventory</strong><br>
+      Inventory paid for upfront by the customer and stored in SLWM or offsite warehouses.
+    </li>
+
+    <li data-term="DemandBridge">
+      <strong>DemandBridge (DB / DbD)</strong><br>
+      Ordering, inventory, reporting, and accounting system.
+    </li>
+
+    <li data-term="Discrepancy">
+      <strong>Vendor Discrepancy</strong><br>
+      Vendor invoice does not match PO or inventory not received.
+    </li>
+
+    <li data-term="Division Code">
+      <strong>Division Code</strong><br>
+      Identifies which SLWM division a client account belongs to.
+    </li>
+
+    <li data-term="ESP">
+      <strong>ESP – ASI Store</strong><br>
+      Used to search promotional products and supplier information.
+    </li>
+
+    <li data-term="Gross Profit Margin">
+      <strong>GPM – Gross Profit Margin</strong><br>
+      Percentage markup over cost.
+    </li>
+
+    <li data-term="Inventory">
+      <strong>Inventory / Stock</strong><br>
+      Products produced and stored for fulfillment.
+    </li>
+
+    <li data-term="JEM">
+      <strong>JEM – Job Entry Management</strong>
+    </li>
+
+    <li data-term="JIRA">
+      <strong>JIRA</strong><br>
+      Internal project and support request management tool.
+    </li>
+
+    <li data-term="KPI">
+      <strong>KPI – Key Performance Indicator</strong><br>
+      A measurable value used to track performance over time.
+    </li>
+
+    <li data-term="MarketingBench">
+      <strong>MarketingBench (MB)</strong><br>
+      Client online ordering site built by SLWM.
+    </li>
+
+    <li data-term="Markup">
+      <strong>Markup</strong><br>
+      Difference between sell price and cost.
+    </li>
+
+    <li data-term="PayCom">
+      <strong>PayCom</strong><br>
+      SLWM payroll and timesheet system.
+    </li>
+
+    <li data-term="Purchase Order">
+      <strong>Purchase Order (PO)</strong><br>
+      Official document authorizing vendors to produce goods.
+    </li>
+
+    <li data-term="Print On Demand">
+      <strong>POD – Print On Demand</strong><br>
+      Items produced as orders are placed and not inventoried.
+    </li>
+
+    <li data-term="Promo">
+      <strong>Promo / Promotional Products</strong><br>
+      Branded giveaway items such as pens, apparel, and accessories.
+    </li>
+
+    <li data-term="Proposal">
+      <strong>Proposal / Quote / RFQ / RFP</strong><br>
+      Request or pricing document for goods or services.
+    </li>
+
+    <li data-term="RTF">
+      <strong>RTF – Real Time Freight</strong><br>
+      Freight setup for MarketingBench credit card orders.
+    </li>
+
+    <li data-term="Sell">
+      <strong>Sell Price</strong><br>
+      Price billed to the client (always higher than cost).
+    </li>
+
+    <li data-term="Service Level Agreement">
+      <strong>SLA – Service Level Agreement</strong><br>
+      Defines service expectations and penalties.
+    </li>
+
+    <li data-term="Slack">
+      <strong>Slack</strong><br>
+      Internal communication tool for SLWM teams.
+    </li>
+
+    <li data-term="SourcingBench">
+      <strong>SourcingBench (DB/a)</strong><br>
+      Web-based procurement solution for quotes and POs.
+    </li>
+
+    <li data-term="SOP">
+      <strong>SOP – Standard Operating Procedure</strong><br>
+      Step-by-step instructions for consistent operations.
+    </li>
+
+    <li data-term="Statement of Work">
+      <strong>SOW – Statement of Work</strong><br>
+      Legally binding document defining project scope.
+    </li>
+
+    <li data-term="Teams">
+      <strong>Microsoft Teams</strong><br>
+      Internal communication tool for Account Specialists.
+    </li>
+
+    <li data-term="Toolbox">
+      <strong>Toolbox</strong><br>
+      Internal SLWM portal with system links.
+    </li>
+
+    <li data-term="Unit of Measure">
+      <strong>UOM – Unit of Measure</strong><br>
+      How a product is sold or released (Each, Box, Pack).
+    </li>
+
+    <li data-term="Vendor">
+      <strong>Vendor / Supplier</strong><br>
+      Partners that produce print and promotional products.
+    </li>
+
+    <li data-term="WM Marketing">
+      <strong>WM / WMM – SLWM Marketing</strong><br>
+      Integrated portfolio of marketing solutions.
+    </li>
+
+    <li data-term="WMC">
+      <strong>WMC – SLWM Commercial</strong><br>
+      SLWM Marketing’s sister print production company.
+    </li>
+
+    <li data-term="Back-ordered">
+  <strong>Back-ordered</strong><br>
+  Product that is temporarily out of stock but still available for purchase.
+  The seller has ordered more from the supplier and expects to fulfill the order later.
+</li>
+
+<li data-term="Call Drivers">
+  <strong>Call Drivers</strong><br>
+  Common reasons for customer contact including account access, order placement,
+  order status, and tracking inquiries.
+</li>
+
+<li data-term="Check">
+  <strong>Check</strong><br>
+  A written payment instruction from a bank account holder.
+</li>
+
+<li data-term="Credit Card">
+  <strong>Credit Card</strong><br>
+  An electronic payment method allowing immediate payment using a bank-issued card.
+</li>
+
+<li data-term="Demand Bridge">
+  <strong>Demand Bridge</strong><br>
+  Tool where order-related information is stored.
+</li>
+
+<li data-term="Dialpad">
+  <strong>Dialpad</strong><br>
+  Primary calling and communication platform.
+  AI-powered system for inbound calls and customer interaction.
+</li>
+
+<li data-term="Impersonate">
+  <strong>Impersonate</strong><br>
+  Ability to access a customer’s account to place an order on their behalf when requested.
+</li>
+
+<li data-term="MarcomCentral">
+  <strong>MarcomCentral</strong><br>
+  Brand management and distributed marketing platform for storing and managing official materials.
+</li>
+
+<li data-term="MyMarketingBench">
+  <strong>MyMarketingBench</strong><br>
+  Central platform used to access marketing insights and assets to support customer discussions.
+</li>
+
+<li data-term="Net Terms">
+  <strong>Net Terms</strong><br>
+  Payment terms on an invoice that define the payment deadline.
+</li>
+
+<li data-term="Pending Status">
+  <strong>Pending Status</strong><br>
+  Indicates an order has been placed but has not yet shipped.
+</li>
+
+<li data-term="Purchase Order">
+  <strong>Purchase Order (PO)</strong><br>
+  Official document issued by a company authorizing a vendor to provide goods or services.
+</li>
+
+<li data-term="Shopify">
+  <strong>Shopify</strong><br>
+  Platform allowing visibility into customer profiles and recent orders during calls.
+</li>
+
+<li data-term="Supply Logic">
+  <strong>SupplyLogic</strong><br>
+  End-to-end sourcing and fulfillment solution for multi-location brands.
+  Provides visibility into spend and ensures brand consistency.
+</li>
+
+<li data-term="User Budget">
+  <strong>User Budget</strong><br>
+  Pre-approved spending limit assigned to a specific user or department.
+</li>
+  </ul>
 </section>
 
 <section class="article" id="marcom">
@@ -502,6 +822,7 @@ function highlightKeyword(article, word) {
 
 </body>
 </html>
+
 
 
 
