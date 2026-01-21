@@ -174,22 +174,64 @@ header button {
     line-height: 1.4;
   }
 
-  @media (max-width: 700px) {
-  .terms-header {
-    display: none;
-  }
+  .companies-table {
+  margin-top: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+}
 
-  .term-row {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-  }
+.companies-header,
+.company-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding: 0.75rem;
+  align-items: center;
+}
+
+.companies-header {
+  background: #f4f6f8;
+  font-weight: 700;
+  border-bottom: 1px solid #ddd;
+}
+
+.company-row {
+  border-bottom: 1px solid #eee;
+}
+
+.company-row:last-child {
+  border-bottom: none;
+}
+
+.company-row a {
+  color: #24194F;
+  text-decoration: underline;
+}
+
+/* Section headers */
 .companies-group {
   background: #24194F;
   color: white;
   font-weight: 700;
   padding: 0.75rem;
   margin-top: 1.5rem;
-  border-radius: 6px 6px 0 0;
+}
+
+.companies-group.shopify {
+  background: #2e7d32;
+}
+
+/* Mobile behavior */
+@media (max-width: 700px) {
+  .companies-header {
+    display: none;
+  }
+
+  .company-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
 }
 
 }
@@ -657,7 +699,7 @@ Click PREVIEW before you check out. You can’t proceed if you will not click PR
 <div class="companies-table">
 
   <!-- MARCOM CENTRAL -->
-  <div class="companies-group marcom">Marcom Central</div>
+  <div class="companies-group marcom"><strong>Marcom Central</strong>l</div>
 
   <div class="companies-header">
     <div>Company</div>
@@ -705,7 +747,7 @@ Click PREVIEW before you check out. You can’t proceed if you will not click PR
   </div>
 
   <!-- SHOPIFY -->
-  <div class="companies-group shopify">Shopify</div>
+  <div class="companies-group shopify"><strong>Shopify</strong></div>
 
   <div class="companies-header">
     <div>Company</div>
@@ -872,6 +914,7 @@ function highlightKeyword(article, word) {
 
 </body>
 </html>
+
 
 
 
