@@ -79,24 +79,46 @@ header button {
 .sidebar {
   position: fixed;
   top: 70px;
-  right: -200px;
-  width: 200px;
+  right: -220px;
+  width: 220px;
   background: #24194F;
   color: white;
-  height: 100%;
-  transition: 0.3s;
-  padding: 10px;
+  height: calc(100% - 70px);
+  transition: right 0.3s ease;
+  padding: 15px;
 }
 
-.sidebar.open { right: 0; }
+.sidebar.open {
+  right: 0;
+}
 
+/* Close button inside sidebar */
 .sidebar button {
   background: none;
   border: none;
   color: white;
   cursor: pointer;
   font-size: 18px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+/* ===== HAMBURGER BUTTON ===== */
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  display: block;
 }
 
 /* ===== ARTICLES ===== */
@@ -224,7 +246,11 @@ footer a { color: dark violet; }
 </header>
 
 <div class="sidebar" id="sidebar">
-  <button onclick="toggleSidebar()">✖ Close</button>
+ <button class="hamburger" onclick="toggleSidebar()" aria-label="Open menu">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
   <p>Articles:</p>
   <ul>
     <li onclick="openArticle('terms')">Terms, Use, & Definitions</li>
@@ -478,6 +504,22 @@ footer a { color: dark violet; }
         </div>
       </div>
 
+      <div class="term-row" data-term="POD">
+        <div class="term">Print on Demand</div>
+        <div class="definition">
+          Orderes can be placed by a client through their MarketingBench Site or by an AS through
+          DemandBridge or SourcingBench. They are orders shipping to a location other than a SLWM or
+          Offsite Warhouse.Items NOT Inventoried - Items produced by a vendor as orders are placed
+        </div>
+      </div>
+
+       <div class="term-row" data-term="RTF">
+        <div class="term">Real Time Freight</div>
+        <div class="definition">
+          RTF needs to be set up for items that are ordered through the MB site as credit card orders.
+        </div>
+      </div>
+
       <div class="term-row" data-term="Supply Logic">
         <div class="term">SupplyLogic</div>
         <div class="definition">
@@ -489,6 +531,20 @@ footer a { color: dark violet; }
         <div class="term">User Budget</div>
         <div class="definition">
           Pre-approved spending limit assigned to a user or department.
+        </div>
+      </div>
+
+      <div class="term-row" data-term="UOM">
+        <div class="term">Unit of Measure</div>
+        <div class="definition">
+          How is the product is sold/release to a customer. Examples: Each, Box, Pack, Carton, Pad.
+        </div>
+      </div>
+
+      <div class="term-row" data-term="Variable Customizable">
+        <div class="term">Unit of Measure</div>
+        <div class="definition">
+          The ability to change information on a printed product or to select a color, size or logo for an apparell or promo item 
         </div>
       </div>
 
@@ -853,6 +909,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
