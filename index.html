@@ -141,26 +141,36 @@ header .hamburger {
 }
 
 /* ===== ARTICLES ===== */
-.article {
-  display: none;
-  padding: 20px;
-  max-width: 900px;
-  margin: 20px auto;
-  background-color: #F4F4F4;
-  border-radius: 8px;
+  .article-title {
+  position: sticky;
+  top: 70px;
+  background: #f4f4f4;
+  padding: 10px 0;
+  z-index: 5;
 }
 
-.article-title {
-  font-weight: 700;
-  font-size: 20px;
-  margin-bottom: 15px;
-}
-
-.article img {
+  .article strong {
   display: block;
-  margin: 10px 0;
-  max-width: 700px;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+  color: #24194F;
 }
+
+.article p,
+.article li {
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+.article p {
+  margin-bottom: 0.75rem;
+}
+.article img {
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
 
 .back {
   display: inline-block;
@@ -212,6 +222,10 @@ header .hamburger {
 .company-row:last-child {
   border-bottom: none;
 }
+.term-row:nth-child(even),
+.company-row:nth-child(even) {
+  background: #fafafa;
+}
 
 /* ===== LINKS ===== */
 .company-row a {
@@ -246,10 +260,21 @@ header .hamburger {
 /* ===== FOOTER ===== */
 footer {
   background: #24194F;
-  color: white;
+  color: #ccc;
   text-align: center;
-  padding: 15px;
+  padding: 20px;
+  font-size: 0.9rem;
 }
+
+footer a {
+  color: #b39ddb;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
 footer a { color: violet; }
 
 </style>
@@ -881,13 +906,21 @@ function performSearch() {
     if (article.textContent.toLowerCase().includes(q)) {
       const div = document.createElement('div');
       div.className = 'search-result';
-      div.textContent =
+
+      const title =
         article.querySelector('.article-title')?.textContent || article.id;
+
+      div.innerHTML = `
+        <strong>${title}</strong><br>
+        <small>Click to view match</small>
+      `;
+
       div.onclick = () => openArticle(article.id, q);
       results.appendChild(div);
     }
   });
 }
+
 
 /* ===== SAFE HIGHLIGHT ===== */
 function highlight(container, word) {
@@ -917,18 +950,30 @@ function clearHighlights() {
 /* ===== SORT TERMS (ONCE) ===== */
 document.addEventListener('DOMContentLoaded', () => {
   const body = document.getElementById('termsBody');
-  if (!body) return;
+  if (body) {
+    [...body.children]
+      .sort((a, b) =>
+        a.dataset.term.toLowerCase().localeCompare(b.dataset.term.toLowerCase())
+      )
+      .forEach(row => body.appendChild(row));
+  }
 
-  [...body.children]
-    .sort((a, b) =>
-      a.dataset.term.toLowerCase().localeCompare(b.dataset.term.toLowerCase())
-    )
-    .forEach(row => body.appendChild(row));
+  const searchInput = document.getElementById('search');
+  if (searchInput) {
+    searchInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        document.querySelector('.search-result')?.click();
+      }
+    });
+  }
 });
+
+
 </script>
 
 </body>
 </html>
+
 
 
 
