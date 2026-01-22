@@ -32,8 +32,11 @@ header button {
   background: none;
   border: 1px solid white;
   color: white;
-  padding: 5px 10px;
-  cursor: pointer;
+}
+/* Remove default header button styling for hamburger */
+header .hamburger {
+  border: none;
+  padding: 8px;
 }
 
 /* ===== HERO ===== */
@@ -86,6 +89,7 @@ header button {
   height: calc(100% - 70px);
   transition: right 0.3s ease;
   padding: 15px;
+  z-index: 1000; /* 🔥 REQUIRED */
 }
 
 .sidebar.open {
@@ -101,6 +105,21 @@ header button {
   font-size: 18px;
   margin-bottom: 15px;
 }
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.sidebar li:hover {
+  text-decoration: underline;
+}
+
 
 /* ===== HAMBURGER BUTTON ===== */
 .hamburger {
@@ -910,6 +929,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
