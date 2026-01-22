@@ -241,16 +241,16 @@ footer a { color: dark violet; }
 <header>
   <img src="images/Supply-logic.png" alt="Supply logic">
   <div>
-    <button onclick="toggleSidebar()">☰ Sidebar</button>
-  </div>
+    <button class="hamburger" onclick="toggleSidebar()" aria-label="Open menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </header>
 
-<div class="sidebar" id="sidebar">
- <button class="hamburger" onclick="toggleSidebar()" aria-label="Open menu">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
+<div class="sidebar" id="sidebar"> 
+ <button onclick="toggleSidebar()">✖ Close</button>
+</div>
   <p>Articles:</p>
   <ul>
     <li onclick="openArticle('terms')">Terms, Use, & Definitions</li>
@@ -909,6 +909,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
