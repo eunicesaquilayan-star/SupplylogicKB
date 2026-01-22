@@ -231,7 +231,7 @@ footer {
   text-align: center;
   padding: 15px;
 }
-footer a { color: dark violet; }
+footer a { color: violet; }
 
 </style>
 </head>
@@ -240,17 +240,17 @@ footer a { color: dark violet; }
 
 <header>
   <img src="images/Supply-logic.png" alt="Supply logic">
-  <div>
-    <button class="hamburger" onclick="toggleSidebar()" aria-label="Open menu">
+
+  <button class="hamburger" onclick="toggleSidebar()" aria-label="Open menu">
     <span></span>
     <span></span>
     <span></span>
   </button>
 </header>
 
-<div class="sidebar" id="sidebar"> 
- <button onclick="toggleSidebar()">✖ Close</button>
-</div>
+<div class="sidebar" id="sidebar">
+  <button onclick="toggleSidebar()">✖ Close</button>
+
   <p>Articles:</p>
   <ul>
     <li onclick="openArticle('terms')">Terms, Use, & Definitions</li>
@@ -261,6 +261,7 @@ footer a { color: dark violet; }
     <li onclick="openArticle('privacy')">Internal Privacy Notice</li>
   </ul>
 </div>
+
 
 <div class="hero">
   <h1>Knowledge Base</h1>
@@ -507,16 +508,16 @@ footer a { color: dark violet; }
       <div class="term-row" data-term="POD">
         <div class="term">Print on Demand</div>
         <div class="definition">
-          Orderes can be placed by a client through their MarketingBench Site or by an AS through
+          Orders can be placed by a client through their MarketingBench Site or by an AS through
           DemandBridge or SourcingBench. They are orders shipping to a location other than a SLWM or
-          Offsite Warhouse.Items NOT Inventoried - Items produced by a vendor as orders are placed
+          Offsite Warehouse.Items NOT Inventoried - Items produced by a vendor as orders are placed
         </div>
       </div>
 
        <div class="term-row" data-term="RTF">
         <div class="term">Real Time Freight</div>
         <div class="definition">
-          RTF needs to be set up for items that are ordered through the MB site as credit card orders.
+          RTF needs to be setup for items that are ordered through the MB site as credit card orders.
         </div>
       </div>
 
@@ -542,9 +543,9 @@ footer a { color: dark violet; }
       </div>
 
       <div class="term-row" data-term="Variable Customizable">
-        <div class="term">Unit of Measure</div>
+        <div class="term">Variable Customizable</div>
         <div class="definition">
-          The ability to change information on a printed product or to select a color, size or logo for an apparell or promo item 
+          The ability to change information on a printed product or to select a color, size or logo for an apparel or promo item 
         </div>
       </div>
 
@@ -678,7 +679,7 @@ Click PREVIEW before you check out. You can’t proceed if you will not click PR
 <a class="back" onclick="goHome()">← Back to Home</a>
 <div class="article-title">DemandBridge Function</div>
 <p><strong>HOW TO LOG IN</strong></p>
-<p>1.	Once the log in page load type your log in ID and hit enter *note if you type anyting it's not visible on your end but system capture.</p>
+<p>1.	Once the log in page load type your log in ID and hit enter *note if you type anything it's not visible on your end but system capture.</p>
 <img src="images/DBE-1.png" alt="DBE 1">
 <p>2.	 If ID is correct, the option to put your password will show, again it's not visible when you type just hit enter.</p>
 <img src="images/DBE-2.png" alt="DBE 2">
@@ -909,6 +910,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
