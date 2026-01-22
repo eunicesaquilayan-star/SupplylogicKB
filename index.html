@@ -141,20 +141,15 @@ header .hamburger {
 }
 
 /* ===== ARTICLES ===== */
-  .article-title {
-  position: sticky;
-  top: 70px;
-  background: #f4f4f4;
-  padding: 10px 0;
-  z-index: 5;
+.article {
+  display: none;
+  padding: 1.5rem;
 }
 
-  .article strong {
-  display: block;
-  margin-top: 1.25rem;
-  margin-bottom: 0.5rem;
-  font-size: 1.05rem;
-  color: #24194F;
+.article-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
 .article p,
@@ -163,14 +158,22 @@ header .hamburger {
   max-width: 800px;
 }
 
+.article strong {
+  display: block;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+  color: #24194F;
+}
+
 .article p {
   margin-bottom: 0.75rem;
 }
+
 .article img {
   border-radius: 6px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
-
 
 .back {
   display: inline-block;
@@ -1063,6 +1066,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
