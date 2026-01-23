@@ -300,7 +300,7 @@ footer a { color: violet; }
   </button>
 </header>
 
-<div class="sidebar" id="sidebar">
+<div class="sidebar" id="sidebar" style="display:none;">
   <button onclick="toggleSidebar()">✖ Close</button>
 
   <p>Articles:</p>
@@ -941,7 +941,15 @@ function goHome() {
 }
 
 function toggleSidebar() {
-  document.getElementById('sidebar').classList.toggle('open');
+  const sidebar = document.getElementById('sidebar');
+
+  if (sidebar.style.display === 'none') {
+    sidebar.style.display = 'block';
+    requestAnimationFrame(() => sidebar.classList.add('open'));
+  } else {
+    sidebar.classList.remove('open');
+    setTimeout(() => sidebar.style.display = 'none', 300);
+  }
 }
 
 /* ===== SEARCH ===== */
@@ -1022,6 +1030,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
