@@ -14,7 +14,6 @@ body {
   font-family: 'Aptos', sans-serif;
   background-color: #f4f4f4;
   color: #000;
-  overflow-x: hidden;
 }
 
 /* ===== HEADER ===== */
@@ -81,7 +80,6 @@ header .hamburger {
 
 /* ===== SIDEBAR ===== */
 .sidebar {
- .sidebar {
   position: fixed;
   top: 70px;
   right: -220px;
@@ -91,10 +89,7 @@ header .hamburger {
   height: calc(100% - 70px);
   transition: right 0.3s ease;
   padding: 15px;
-  z-index: 1000;
-
-  will-change: transform;
-  transform: translateZ(0);
+  z-index: 1000; /* 🔥 REQUIRED */
 }
 
 .sidebar.open {
@@ -300,7 +295,7 @@ footer a { color: violet; }
   </button>
 </header>
 
-<div class="sidebar" id="sidebar" style="display:none;">
+<div class="sidebar" id="sidebar">
   <button onclick="toggleSidebar()">✖ Close</button>
 
   <p>Articles:</p>
@@ -941,15 +936,7 @@ function goHome() {
 }
 
 function toggleSidebar() {
-  const sidebar = document.getElementById('sidebar');
-
-  if (sidebar.style.display === 'none') {
-    sidebar.style.display = 'block';
-    requestAnimationFrame(() => sidebar.classList.add('open'));
-  } else {
-    sidebar.classList.remove('open');
-    setTimeout(() => sidebar.style.display = 'none', 300);
-  }
+  document.getElementById('sidebar').classList.toggle('open');
 }
 
 /* ===== SEARCH ===== */
@@ -1030,9 +1017,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
-
-
-
 
 
 
